@@ -7,11 +7,12 @@ package mytest;
  * @author Justin
  *
  */
+
 public class Loan {
 	private double annualInterestRate;
 	private int numberOfYears;
 	private double loanAmount;
-	
+   	
 	/** Default constructor */
 	public Loan() {
 		this (2.5, 1, 1000);
@@ -56,7 +57,11 @@ public class Loan {
 		double monthlyInterestRate = annualInterestRate  / 1200;
 		double monthlyPayment = loanAmount * monthlyInterestRate / 
 				(1 - (1 / Math.pow(1 + monthlyInterestRate, 12 * numberOfYears)));
-		System.out.println("Payment calculateduu!");
+		System.out.println("Payment calculated!");
 		return monthlyPayment;
 	}
+   
+     public static void main (String[] args) {
+   }
+
 }
