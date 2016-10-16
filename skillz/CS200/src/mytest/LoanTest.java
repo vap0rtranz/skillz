@@ -17,22 +17,26 @@ public class LoanTest {
 	 */
 	@Test
 	public void testGetMonthlyPayment() {
-		double annualInterestRate = 2.5;
-		int numberOfYears = 10;
-		double loanAmount = 1000;
-		Loan loan = new Loan(annualInterestRate, numberOfYears, loanAmount);
-      int test = (int) loan.getMonthlyPayment();
-		assertTrue("Monthly payement calculation correct", test == 9);
-		assertFalse("monthly payment test failed", test != 9);
+		double annualInterestRate = 2.5; int numberOfYears = 10; double loanAmount = 1000;
+		Loan loanTest = new Loan(annualInterestRate, numberOfYears, loanAmount);
+		int paymentTest = (int) loanTest.getMonthlyPayment();
+		assertTrue("Monthly payement calculation correct", paymentTest == 9);
+		assertFalse("monthly payment test failed", paymentTest != 9);
 	}
 
 	/**
 	 * Test method for {@link mytest.Loan#getMonthlyPayment()}.
 	 */
-	@Test
-	public void testGetTotalPayment() {
+	
+	/**
+	 * 
+	 * @Test
+		public void testGetTotalPayment() {
 		
 		fail("Not yet implemented"); // TODO
-	}
+	} 
+	 * 
+	 * 
+	 */	
 
 }
