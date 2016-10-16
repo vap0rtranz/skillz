@@ -14,7 +14,7 @@ public class ComputeLoanTest {
 		double annualInterestRate = 4.5;
 		double loanAmount = 165000;
 		int numberOfYears = 30;
-		ComputeLoan loan = new ComputeLoan(annualInterestRate, loanAmount, numberOfYears);
+		ComputeLoan loan = new ComputeLoan();
 	}
 	
 

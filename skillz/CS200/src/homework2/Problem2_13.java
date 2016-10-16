@@ -27,8 +27,8 @@ public class Problem2_13 {
 			    
 	   System.out.println( "How much are you saving monthly?" );
 	   float savingsAmount = keyboard.nextFloat();
-	   System.out.println( "What's the interest on this savings account? [APR] "?
-      float monthlyInterestRate = keyboard.nextFloat() / 100 / 12;
+	   System.out.println( "What's the interest on this savings account? [APR] ?");
+       float monthlyInterestRate = keyboard.nextFloat() / 100 / 12;
 	   System.out.println( "How many months do you want to forecast in total, compounded savings?" );
 	   short numberOfMonths = keyboard.nextShort();
 	     	    
