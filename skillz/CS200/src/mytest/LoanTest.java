@@ -4,7 +4,6 @@
 package mytest;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 /**
@@ -17,20 +16,21 @@ public class LoanTest {
 	 * Test method for {@link mytest.Loan#Loan(double, int, double)}.
 	 */
 	@Test
-	public void testLoanDoubleIntDouble() {
+	public void testGetMonthlyPayment() {
 		double annualInterestRate = 2.5;
-		int numberOfYears = 5;
+		int numberOfYears = 10;
 		double loanAmount = 1000;
 		Loan loan = new Loan(annualInterestRate, numberOfYears, loanAmount);
-		assertTrue(loan.getMonthlyPayment() == 500);
-		fail("Not yet implemented"); // TODO
+      int test = (int) loan.getMonthlyPayment();
+		assertTrue("Monthly payement calculation correct", test == 9);
+		assertFalse("monthly payment test failed", test != 9);
 	}
 
 	/**
 	 * Test method for {@link mytest.Loan#getMonthlyPayment()}.
 	 */
 	@Test
-	public void testGetMonthlyPayment() {
+	public void testGetTotalPayment() {
 		
 		fail("Not yet implemented"); // TODO
 	}
