@@ -18,7 +18,7 @@ public class Problem5_5 {
 		double leftPounds = 0; double rightKilograms = 0;
 		System.out.println("Kilograms\tPounds\t|\tPounds\tKilograms");
 		// iternate 1 to 199
-		for (int leftKilograms = 1, rightPounds = 20; leftKilograms < 200; rightPounds <= 515; leftKilograms+=2; rightPounds+=5) {
+		for (int leftKilograms = 1, rightPounds = 20; leftKilograms < 200, rightPounds <= 515; leftKilograms+=2, rightPounds+=5) {
 			leftPounds = leftKilograms * 2.2;
 			/** for (int rightPounds = 20; rightPounds <= 515; rightPounds+=5) {
 			 * 
