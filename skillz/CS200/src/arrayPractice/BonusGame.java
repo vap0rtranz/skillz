@@ -58,6 +58,7 @@ public class BonusGame {
 		int bonusIndex = findBonusSequence(buttonStream, bonusButtonSequences);
 		// print the bonus points
 		printBonus(bonusIndex, bonusPoints);
+		//
 	}
 
 }
