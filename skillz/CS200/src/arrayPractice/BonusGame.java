@@ -17,18 +17,27 @@ public class BonusGame {
 	public static int findBonusSequence(int[] myButtonStream, int[][] myBonusButtonSequence)
 	{
 		// find match between button stream and bonus sequence
-		int matchCount;
+		int matchCount = 0;
 		for (int streamIndex = 0; streamIndex < myButtonStream.length; streamIndex++)
 		{
-			matchCount = 0;
 			for (int sequenceIndex = 0; sequenceIndex < myBonusButtonSequence.length; sequenceIndex++)
 			{
-				while (myButtonStream[streamIndex] == myBonusButtonSequence[sequenceIndex][matchCount])
+				for (int buttonIndex = 0; buttonIndex < myBonusButtonSequence[sequenceIndex].length; buttonIndex++) 
 				{
-					if ( matchCount < myBonusButtonSequence[sequenceIndex].length ) { matchCount++; }
-					else if (matchCount == myBonusButtonSequence[sequenceIndex].length) { return sequenceIndex; }
+					if (myButtonStream[streamIndex] == myBonusButtonSequence[sequenceIndex][buttonIndex])
+					{
+						matchCount++;
+						streamIndex++;
+						if (matchCount == myBonusButtonSequence[sequenceIndex].length) 
+							{ return sequenceIndex; }
+					}
+					else
+					{
+						matchCount = 0;
+						break;
+					}
 				} 
-				matchCount = 0;
+				
 			}
 		}
 		return -1;

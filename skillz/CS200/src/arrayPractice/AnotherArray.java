@@ -20,8 +20,19 @@ public class AnotherArray {
 	
 	public static boolean findPalendrone(int[] myArray)
 	{
-		for (int i = 0, j = myArray.length - 1; i < myArray.length && j > 0; i++, j--)
-			return true;
+		int matchCounter = 0;
+		for (int i = 0, j = myArray.length - 1; i <= j; i++, j--)
+		{
+			if (myArray[i] == myArray[j])
+			{
+				matchCounter++;
+				if (matchCounter >= myArray.length / 2) 
+				{
+					System.out.println("Palindrome!");
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
