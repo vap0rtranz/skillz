@@ -14,19 +14,17 @@ public class FindStream {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] stream = { 7, 3, 2, 9, 4, 8 };
+		int[] stream = { 2, 9, 9, 4, 7, 3, 2, 9, 4 };
 		int[] sequence = { 2, 9, 4 };
 		findSequence(stream, sequence);
 	}
 	
-	public static boolean findSequence(int[] myStream, int[]mySequence)
+	public static boolean findSequence(int[] myStream, int[] mySequence)
 	{
 		int matchCount = 0;
-		for (int i = 0; i < (myStream.length - mySequence.length); i++)
+		for (int i = 0; i < myStream.length; i++)
 		{
-			for (int j = 0; j < mySequence.length; j++)
-			{
-				if (myStream[i] == mySequence[j])
+				if (matchCount < mySequence.length && myStream[i] == mySequence[matchCount])
 				{
 					matchCount++;
 					if (matchCount == mySequence.length) { return true; }
@@ -34,9 +32,7 @@ public class FindStream {
 				else 
 				{ 
 					matchCount = 0;
-					break;
 				}
-			}
 		}
 		return false;
 	}
