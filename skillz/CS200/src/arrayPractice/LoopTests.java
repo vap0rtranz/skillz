@@ -1,3 +1,5 @@
+package arrayPractice;
+
 import java.util.Scanner;
 
 public class LoopTests
@@ -5,20 +7,27 @@ public class LoopTests
    public static void main(String[] args)
    {
       Scanner inp = new Scanner(System.in);
+      /**
       System.out.println( "Print the numbers from 2 through 10 inclusive\n-----");
       System.out.println( "------\nPrint the numbers from 10 through 2 inclusive\n-----");
+      printNumbersReversed(10, 2);
       System.out.println( "------\nPrint the numbers from 1 through 50 inclusive, five numbers per line\n-----");
       System.out.println( "------\nPrint all positive odd numbers less than 100\n-----" );
       System.out.println( "------\nPrint all positive odd numbers less than 100, five per line.\n-----" );
+      printPositiveOddFifths(100);
+   
       System.out.println( "------\nPrint the full pattern 2 5 8 ... 98 all on one line.\n-----" );
-      System.out.println( "------\n(Nested loops) Print the numbers 00 01 02 03 ... 98 99\n-----" );   
+      System.out.println( "------\n(Nested loops) Print the numbers 00 01 02 03 ... 98 99\n-----" ); 
+      printDoubleDigitNumbers(100);
       System.out.println( "------\n(Nested loops) Print the numbers 00 01 02 03 ... 98 99 five numbers per line.\n-----" );   
+ 
       System.out.println( "------\nPrint a 7 by 7 block of asterisks.\n-----" );
       System.out.println( "------\nPrint an n by n block of asterisks.\n-----" );
       System.out.println( "------\nPrint an n by n block of asterisks filled with @s.\n-----" );
       System.out.println( "------\nGet five values from the user, 1 at a time, print the sum, average, max, and min.\n-----" );   
       System.out.println( "------\nGet two different values from the user, print all values between the low and high value inclusive.\n-----" );   
-      System.out.println( "------\nGet a value from the user, then keep getting values from the user until the original number is entered again. Print the sum and average.\n-----" );   
+      System.out.println( "------\nGet a value from the user, then keep getting values from the user until the original number is entered again. Print the sum and average.\n-----" );
+      **/   
       System.out.println( "------\nGet values from the user, keep track of how many of the same elements in a row they enter.");
       System.out.println( "\t\tif they enter 1 in a row, print \"one in a row!\" ");
       System.out.println( "\t\tif they enter 2 in a row, print \"two in a row!\" ");
@@ -26,6 +35,82 @@ public class LoopTests
       System.out.println( "\t\tif they enter 4 in a row, print \"four in a row!\" ");
       System.out.println( "\t\tif they enter 5 in a row, print \"goodbye!\" and exit the input loop.");
       System.out.println( "After they enter 5 in a row, print the sum and average of all the values entered.\n------" );
+      inputProcessor();
+   }
+   
+   public static void printNumbersReversed(int myMaxNumber, int myMinNumber)
+   {
+   		for (int i = myMaxNumber; i >= myMinNumber; i--)
+   		{
+   			System.out.println(i);
+   		}
+   }
+   
+   public static void printPositiveOddFifths(int myMaxNumber)
+   {
+	   int FifthCounter = 0;
+	   for (int Number = 0; Number < myMaxNumber; Number+=2)
+	   {
+	   		System.out.print(Number + " ");
+	   		FifthCounter++;
+	   		if (FifthCounter == 5) 
+	   		{
+	   			System.out.println();
+	   			FifthCounter = 0;
+	   		}
+	   }
+   }
+   
+   public static void printDoubleDigitNumbers(int myMaxNumber)
+
+   {
+	   int numberCounter = 0;
+	   while (numberCounter < myMaxNumber)
+	   {
+		   for (int FirstDigit = 0; FirstDigit < 10; FirstDigit++)
+		   {
+			   for (int SecondDigit = 0; SecondDigit < 10; SecondDigit++)
+			   {
+			   		System.out.println(" " + FirstDigit + SecondDigit);
+	   				numberCounter++;
+			   }
+		   }
+	   }
+   }
+
+   public static void inputProcessor()
+   {
+	   int userNumber; 
+	   int userLastNumber;
+	   Scanner keyboard = new Scanner(System.in);
+	   // initialize first user number
+	   userNumber = keyboard.nextInt();
+	   int runCounter = 0;
+	   // find runs
+	   while (runCounter < 5)
+	   {
+		   userLastNumber = userNumber;
+		   System.out.println();
+	   // get the user's number
+		   userNumber = keyboard.nextInt();
+		   // find rows
+		   if (userNumber == userLastNumber) 
+		   { 
+			   	runCounter++; 
+	   // single 
+		   		if (runCounter == 1) { System.out.println("run of " + runCounter); }
+	   // double 
+		   		if (runCounter == 2) { System.out.println("run of " + runCounter); }
+	   // run of 3
+		   		if (runCounter == 3) { System.out.println("run of " + runCounter); }
+	   // run of 4
+		   		if (runCounter == 4) { System.out.println("run of " + runCounter); }
+		   	 // run of 5 -- bye!
+		   		if (runCounter == 5) { System.out.println("bye!"); return; }
+		   }
+	  
+		   else { runCounter = 0; }
+	   }
    }
 }
 
@@ -46,6 +131,7 @@ public class LoopTests
  ------
  Print the numbers from 10 through 2 inclusive
  -----
+ 
  10
  9
  8

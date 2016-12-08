@@ -8,10 +8,6 @@ package arrayPractice;
  *
  */
 public class BonusGame {
-
-	/**
-	 * @param args
-	 */
 	
 	public static int[] getButtonStream(int[] myButtonStream)
 	{
@@ -20,23 +16,22 @@ public class BonusGame {
 	
 	public static int findBonusSequence(int[] myButtonStream, int[][] myBonusButtonSequence)
 	{
-		int matchCount;
-		int myBonusIndex = -1;
 		// find match between button stream and bonus sequence
+		int matchCount;
 		for (int streamIndex = 0; streamIndex < myButtonStream.length; streamIndex++)
 		{
+			matchCount = 0;
 			for (int sequenceIndex = 0; sequenceIndex < myBonusButtonSequence.length; sequenceIndex++)
 			{
-				matchCount = 0;
-				for (int buttonIndex = 0; buttonIndex < myBonusButtonSequence[sequenceIndex].length; buttonIndex++)
+				while (myButtonStream[streamIndex] == myBonusButtonSequence[sequenceIndex][matchCount])
 				{
-					if (myBonusButtonSequence[sequenceIndex][buttonIndex] != myButtonStream[streamIndex]) { break; }
-					else { matchCount++; }
-				}
-				if ( matchCount == myBonusButtonSequence[sequenceIndex].length ) {myBonusIndex = sequenceIndex; break; } 
+					if ( matchCount < myBonusButtonSequence[sequenceIndex].length ) { matchCount++; }
+					else if (matchCount == myBonusButtonSequence[sequenceIndex].length) { return sequenceIndex; }
+				} 
+				matchCount = 0;
 			}
 		}
-		return myBonusIndex;
+		return -1;
 	}
 	
 	public static void printBonus(int myBonusIndex, int[] myBonusPoints)
