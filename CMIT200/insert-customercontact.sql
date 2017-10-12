@@ -24,6 +24,28 @@ INSERT INTO [dbo].[CustomerContact]
            ,'VT'
            ,00010
            ,'vader@gmail.com'
+           ,323456789),
+		   (1
+           ,'Doe Lane'
+           ,'Chicago'
+           ,'IL'
+           ,60606
+           ,'Doe Lane'
+           ,'Chicago'
+           ,'IL'
+           ,60606
+           ,'vader@gmail.com'
+           ,323456789),
+		    (2
+           ,'310 Death Star Lane'
+           ,'Jamacia'
+           ,'VT'
+           ,00010
+           ,'310 Death Star Lane'
+           ,'Jamacia'
+           ,'VT'
+           ,00010
+           ,'vader@gmail.com'
            ,323456789)
 GO
 
