@@ -12,24 +12,24 @@
 USE [CraftStoreDB_DEV]
 GO
 
-/****** Object:  Table [dbo].[Customer]    Script Date: 10/11/17 20:25:31 ******/
-DROP TABLE [dbo].[Customer]
+/****** Object:  Table [dbo].[ProductType]    Script Date: 10/11/17 20:27:35 ******/
+DROP TABLE [dbo].[ProductType]
 GO
 
-/****** Object:  Table [dbo].[Customer]    Script Date: 10/11/17 20:25:31 ******/
+/****** Object:  Table [dbo].[ProductType]    Script Date: 10/11/17 20:27:35 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Customer](
-	[CustomerID] [int] IDENTITY(1,1) NOT NULL,
-	[LastName] [nvarchar](50) NOT NULL,
-	[FirstName] [nvarchar](50) NOT NULL,
- CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
+CREATE TABLE [dbo].[ProductType](
+	[ProductTypeID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductTypeName] [nvarchar](50) NOT NULL,
+	[ProductTypeDescription] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED 
 (
-	[CustomerID] ASC
+	[ProductTypeID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO

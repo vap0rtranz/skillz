@@ -15,11 +15,11 @@ GO
 ALTER TABLE [dbo].[CustomerContact] DROP CONSTRAINT [FK_CustomerContact_Customer]
 GO
 
-/****** Object:  Table [dbo].[CustomerContact]    Script Date: 09/10/17 20:57:51 ******/
+/****** Object:  Table [dbo].[CustomerContact]    Script Date: 10/11/17 20:26:06 ******/
 DROP TABLE [dbo].[CustomerContact]
 GO
 
-/****** Object:  Table [dbo].[CustomerContact]    Script Date: 09/10/17 20:57:51 ******/
+/****** Object:  Table [dbo].[CustomerContact]    Script Date: 10/11/17 20:26:06 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -31,18 +31,18 @@ CREATE TABLE [dbo].[CustomerContact](
 	[MailingAddressStreet] [nvarchar](50) NULL,
 	[MailingAddressCity] [nvarchar](50) NULL,
 	[MailingAddressState] [nvarchar](50) NULL,
-	[MailingAddressZip] [smallint] NULL,
+	[MailingAddressZip] [int] NULL,
 	[BillingAddressStreet] [nvarchar](50) NOT NULL,
 	[BillingAddressCity] [nvarchar](50) NOT NULL,
 	[BillingAddressState] [nvarchar](50) NOT NULL,
-	[BillingAddressZip] [smallint] NOT NULL,
+	[BillingAddressZip] [int] NOT NULL,
 	[EmailAddress] [nvarchar](50) NULL,
-	[PhoneNumber] [smallint] NULL
+	[PhoneNumber] [int] NULL
 ) ON [PRIMARY]
 GO
 
 ALTER TABLE [dbo].[CustomerContact]  WITH CHECK ADD  CONSTRAINT [FK_CustomerContact_Customer] FOREIGN KEY([CustomerID])
-REFERENCES [dbo].[Customer] ([ID])
+REFERENCES [dbo].[Customer] ([CustomerID])
 GO
 
 ALTER TABLE [dbo].[CustomerContact] CHECK CONSTRAINT [FK_CustomerContact_Customer]

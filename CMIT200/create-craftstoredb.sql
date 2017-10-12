@@ -12,11 +12,11 @@
 USE [master]
 GO
 
-/****** Object:  Database [CraftStoreDB_DEV]    Script Date: 09/10/17 20:55:46 ******/
+/****** Object:  Database [CraftStoreDB_DEV]    Script Date: 10/11/17 20:23:18 ******/
 DROP DATABASE [CraftStoreDB_DEV]
 GO
 
-/****** Object:  Database [CraftStoreDB_DEV]    Script Date: 09/10/17 20:55:46 ******/
+/****** Object:  Database [CraftStoreDB_DEV]    Script Date: 10/11/17 20:23:18 ******/
 CREATE DATABASE [CraftStoreDB_DEV]
  CONTAINMENT = NONE
  ON  PRIMARY 
