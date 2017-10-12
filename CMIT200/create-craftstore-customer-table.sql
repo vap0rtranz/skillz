@@ -17,9 +17,11 @@ DROP TABLE [dbo].[Customer]
 GO
 
 /****** Object:  Table [dbo].[Customer]    Script Date: 10/11/17 20:25:31 ******/
+-- ensure we are ISO compliant for the value of NULL
 SET ANSI_NULLS ON
 GO
 
+-- use quotes 
 SET QUOTED_IDENTIFIER ON
 GO
 
@@ -27,6 +29,7 @@ CREATE TABLE [dbo].[Customer](
 	[CustomerID] [int] IDENTITY(1,1) NOT NULL,
 	[LastName] [nvarchar](50) NOT NULL,
 	[FirstName] [nvarchar](50) NOT NULL,
+	[CreatedDate] [date] NULL
  CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
 (
 	[CustomerID] ASC

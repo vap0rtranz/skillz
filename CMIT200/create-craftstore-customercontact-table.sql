@@ -20,6 +20,7 @@ DROP TABLE [dbo].[CustomerContact]
 GO
 
 /****** Object:  Table [dbo].[CustomerContact]    Script Date: 10/11/17 20:26:06 ******/
+-- ensure values of NULL is ISO compliant
 SET ANSI_NULLS ON
 GO
 

@@ -35,7 +35,7 @@ CREATE TABLE [dbo].[StockOrder](
 	[InventoryID] [int] NOT NULL,
 	[Quantity] [smallint] NOT NULL,
 	[Date] [date] NOT NULL,
-	[Paid] [bit] NOT NULL,
+	[Paid] [bit] NOT NULL DEFAULT 0,
  CONSTRAINT [PK_StockOrder] PRIMARY KEY CLUSTERED 
 (
 	[StockOrderID] ASC
