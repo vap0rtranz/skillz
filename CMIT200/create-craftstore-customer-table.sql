@@ -9,11 +9,16 @@
     Target Database Engine Type : Standalone SQL Server
 */
 
-USE [CraftStoreDB_DEV]
+USE [CraftStoreDB_QA]
 GO
 
 /****** Object:  Table [dbo].[Customer]    Script Date: 10/11/17 20:25:31 ******/
-DROP TABLE [dbo].[Customer]
+
+IF EXISTS (SELECT 1 FROM sys.tables WHERE [Name] = 'Customer')
+BEGIN
+	DROP TABLE [dbo].[Customer]
+END
+
 GO
 
 /****** Object:  Table [dbo].[Customer]    Script Date: 10/11/17 20:25:31 ******/

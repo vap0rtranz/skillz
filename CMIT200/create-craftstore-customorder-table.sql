@@ -9,17 +9,17 @@
     Target Database Engine Type : Standalone SQL Server
 */
 
-USE [CraftStoreDB_DEV]
+USE [CraftStoreDB_QA]
 GO
 
-ALTER TABLE [dbo].[CustomOrder] DROP CONSTRAINT [FK_CustomOrder_Product]
-GO
+IF EXISTS (SELECT 1 FROM sys.tables WHERE [Name] = 'CustomOrder')
+BEGIN
+	ALTER TABLE [dbo].[CustomOrder] DROP CONSTRAINT [FK_CustomOrder_Product]
+	ALTER TABLE [dbo].[CustomOrder] DROP CONSTRAINT [FK_CustomOrder_Customer]
+	/****** Object:  Table [dbo].[StockOrder]    Script Date: 10/12/17 20:05:36 ******/
+	DROP TABLE [dbo].[CustomOrder]
+END
 
-ALTER TABLE [dbo].[CustomOrder] DROP CONSTRAINT [FK_CustomOrder_Customer]
-GO
-
-/****** Object:  Table [dbo].[CustomOrder]    Script Date: 10/11/17 20:26:27 ******/
-DROP TABLE [dbo].[CustomOrder]
 GO
 
 /****** Object:  Table [dbo].[CustomOrder]    Script Date: 10/11/17 20:26:27 ******/

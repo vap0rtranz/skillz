@@ -9,20 +9,18 @@
     Target Database Engine Type : Standalone SQL Server
 */
 
-USE [CraftStoreDB_DEV]
+USE [CraftStoreDB_QA]
 GO
 
-ALTER TABLE [dbo].[StockOrder] DROP CONSTRAINT [FK_StockOrder_Inventory]
-GO
+IF EXISTS (SELECT 1 FROM sys.tables WHERE [Name] = 'StockOrder')
+BEGIN
+	ALTER TABLE [dbo].[StockOrder] DROP CONSTRAINT [FK_StockOrder_Inventory]
+	ALTER TABLE [dbo].[StockOrder] DROP CONSTRAINT [FK_StockOrder_Customer]
+	ALTER TABLE [dbo].[StockOrder] DROP CONSTRAINT [DF_StockOrder_Paid]
+	/****** Object:  Table [dbo].[StockOrder]    Script Date: 10/12/17 20:05:36 ******/
+	DROP TABLE [dbo].[StockOrder]
+END
 
-ALTER TABLE [dbo].[StockOrder] DROP CONSTRAINT [FK_StockOrder_Customer]
-GO
-
-ALTER TABLE [dbo].[StockOrder] DROP CONSTRAINT [DF_StockOrder_Paid]
-GO
-
-/****** Object:  Table [dbo].[StockOrder]    Script Date: 10/12/17 20:05:36 ******/
-DROP TABLE [dbo].[StockOrder]
 GO
 
 /****** Object:  Table [dbo].[StockOrder]    Script Date: 10/12/17 20:05:36 ******/

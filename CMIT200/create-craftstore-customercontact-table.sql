@@ -9,14 +9,16 @@
     Target Database Engine Type : Standalone SQL Server
 */
 
-USE [CraftStoreDB_DEV]
+USE [CraftStoreDB_QA]
 GO
 
-ALTER TABLE [dbo].[CustomerContact] DROP CONSTRAINT [FK_CustomerContact_Customer]
-GO
+IF EXISTS (SELECT 1 FROM sys.tables WHERE [Name] = 'CustomerContact')
+BEGIN
+	ALTER TABLE [dbo].[CustomerContact] DROP CONSTRAINT [FK_CustomerContact_Customer]
+	/****** Object:  Table [dbo].[CustomerContact]    Script Date: 10/11/17 20:26:06 ******/
+	DROP TABLE [dbo].[CustomerContact]
+END
 
-/****** Object:  Table [dbo].[CustomerContact]    Script Date: 10/11/17 20:26:06 ******/
-DROP TABLE [dbo].[CustomerContact]
 GO
 
 /****** Object:  Table [dbo].[CustomerContact]    Script Date: 10/11/17 20:26:06 ******/

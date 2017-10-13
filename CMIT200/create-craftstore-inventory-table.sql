@@ -9,14 +9,16 @@
     Target Database Engine Type : Standalone SQL Server
 */
 
-USE [CraftStoreDB_DEV]
+USE [CraftStoreDB_QA]
 GO
 
-ALTER TABLE [dbo].[Inventory] DROP CONSTRAINT [FK_Inventory_Product]
-GO
+IF EXISTS (SELECT 1 FROM sys.tables WHERE [Name] = 'Inventory')
+BEGIN
+	ALTER TABLE [dbo].[Inventory] DROP CONSTRAINT [FK_Inventory_Product]
+	/****** Object:  Table [dbo].[CustomerContact]    Script Date: 10/11/17 20:26:06 ******/
+	DROP TABLE [dbo].[Inventory]
+END
 
-/****** Object:  Table [dbo].[Inventory]    Script Date: 10/12/17 20:09:52 ******/
-DROP TABLE [dbo].[Inventory]
 GO
 
 /****** Object:  Table [dbo].[Inventory]    Script Date: 10/12/17 20:09:52 ******/
