@@ -8,4 +8,4 @@ EXEC dbo.InsertCustomer
 @CustomerID = @CustomerIDOut OUTPUT,
 @FirstName = 'TestFirstName', 
 @LastName = 'TestLastName',
-@CreatedDate = '1994-01-21';
+@CreatedDate = '2007-05-08 12:35:00';

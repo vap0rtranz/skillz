@@ -22,7 +22,7 @@ CREATE PROCEDURE dbo.InsertCustomer
 	@CustomerID INT = 0 OUTPUT,
 	@FirstName nvarchar(50) = 'Jane',
 	@LastName nvarchar(50) = 'Doe',
-	@CreatedDate date = '1994-11-21'
+	@CreatedDate smalldatetime = '2007-05-08 12:35:00'
 	)
 
 AS
