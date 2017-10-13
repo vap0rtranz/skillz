@@ -1,10 +1,11 @@
-USE CraftStoreDB_DEV;
+USE CraftStoreDB_QA;
 
 -- setup variable to capture OUTPUT
 DECLARE @CustomerIDOut INT;
 
 EXEC dbo.InsertCustomer 
-@FirstName = 'First', 
-@LastName = 'Last',
 -- capture output parameter labelled CustomerID
-@CustomerID = @CustomerIDOut OUTPUT;
+@CustomerID = @CustomerIDOut OUTPUT,
+@FirstName = 'TestFirstName', 
+@LastName = 'TestLastName',
+@CreatedDate = '1994-01-21';

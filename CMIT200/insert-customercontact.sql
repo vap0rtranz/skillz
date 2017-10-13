@@ -1,5 +1,18 @@
-USE [CraftStoreDB_DEV]
-GO
+USE [CraftStoreDB_QA]
+
+DECLARE @CustomerID INT;
+
+DECLARE @FirstName nvarchar(50) = 'Jane';
+DECLARE	@LastName nvarchar(50) = 'Doe';
+DECLARE @CreatedDate date = '1994-01-21';
+
+BEGIN TRANSACTION;
+
+INSERT INTO dbo.[Customer](FirstName, LastName, CreatedDate) VALUES(@FirstName, @LastName, @CreatedDate);
+
+SELECT @CustomerID = SCOPE_IDENTITY();
+
+PRINT 'Inserted contact ID: ' + CAST(@CustomerId AS VARCHAR(10));
 
 INSERT INTO [dbo].[CustomerContact]
            ([CustomerID]
@@ -14,28 +27,6 @@ INSERT INTO [dbo].[CustomerContact]
            ,[EmailAddress]
            ,[PhoneNumber])
      VALUES
-           (3
-           ,'310 Death Star Lane'
-           ,'Jamacia'
-           ,'VT'
-           ,00010
-           ,'310 Death Star Lane'
-           ,'Jamacia'
-           ,'VT'
-           ,00010
-           ,'vader@gmail.com'
-           ,323456789),
-		   (1
-           ,'Doe Lane'
-           ,'Chicago'
-           ,'IL'
-           ,60606
-           ,'Doe Lane'
-           ,'Chicago'
-           ,'IL'
-           ,60606
-           ,'vader@gmail.com'
-           ,323456789),
 		    (2
            ,'310 Death Star Lane'
            ,'Jamacia'

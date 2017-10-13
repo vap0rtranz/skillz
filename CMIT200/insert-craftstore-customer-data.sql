@@ -1,24 +1,14 @@
-USE [CraftStoreDB_DEV]
-GO
+USE CraftStoreDB_QA;
 
-INSERT INTO [dbo].[Customer]
-           ([LastName]
-           ,[FirstName])
-     VALUES
-           ('Doe'
-           ,'Becky'),
-		   ('Mill'
-           ,'Cindy'),
-		   ('Mill'
-           ,'Mike'),
-		   ('Pitt'
-           ,'Denise'),
-		   ('Mill'
-           ,'Jason'),
-		   ('Pitt'
-           ,'Justin'),
-		   ('Pitt'
-           ,'Layla')
-GO
+DECLARE @CustomerID INT;
+DECLARE @FirstName nvarchar(50) = 'Jane';
+DECLARE	@LastName nvarchar(50) = 'Doe';
+DECLARE @CreatedDate date = '1994-01-21';
 
+BEGIN TRANSACTION;
 
+INSERT INTO dbo.[Customer](FirstName, LastName, CreatedDate) VALUES(@FirstName, @LastName, @CreatedDate);
+
+SELECT @CustomerID = SCOPE_IDENTITY();
+
+PRINT 'Inserted contact ID: ' + CAST(@CustomerId AS VARCHAR(10));
