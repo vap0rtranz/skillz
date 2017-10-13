@@ -1,17 +1,13 @@
 USE [CraftStoreDB_DEV]
 GO
 
-SELECT [InventoryID]
-      ,[Price]
-      ,[Cost]
-	  ,[Description] =
+SELECT [InventoryID],[ListPrice],[ProductionCost],[Description] =
 	  CASE
-		WHEN [Price] >= 50.00 THEN 'On sale!'
-		ELSE 'Regular price'
+		WHEN [ListPrice] >= 50.00 THEN 'Elligible for sales'
+		ELSE 'Regular list price'
 	  END
   FROM [dbo].[Inventory]
-  WHERE [Quantity] > 0
-  ORDER BY [Price] DESC
+  ORDER BY [ListPrice] DESC
 GO
 
 
