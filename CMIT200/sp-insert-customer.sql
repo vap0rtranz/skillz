@@ -10,6 +10,8 @@ GO
 -- =============================================
 USE CraftStoreDB_QA;
 
+DECLARE @CustomerID int;
+
 IF EXISTS (SELECT 1 FROM sys.procedures	WHERE [name] = 'InsertCustomer')
 	BEGIN
 		DROP PROCEDURE dbo.InsertCustomer;
