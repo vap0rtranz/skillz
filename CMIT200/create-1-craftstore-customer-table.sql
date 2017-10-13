@@ -34,7 +34,7 @@ CREATE TABLE [dbo].[Customer](
 	[CustomerID] [int] IDENTITY(1,1) NOT NULL,
 	[LastName] [nvarchar](50) NOT NULL,
 	[FirstName] [nvarchar](50) NOT NULL,
-	[CreatedDate] [date] NULL
+	[CreatedDate] [smalldatetime] NULL
  CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
 (
 	[CustomerID] ASC

@@ -3,7 +3,7 @@ USE CraftStoreDB_QA;
 DECLARE @CustomerID INT;
 DECLARE @FirstName nvarchar(50) = 'Jane';
 DECLARE	@LastName nvarchar(50) = 'Doe';
-DECLARE @CreatedDate date = '1994-01-21';
+DECLARE @CreatedDate smalldatetime = '2007-05-08 12:35:00';
 
 BEGIN TRANSACTION;
 
