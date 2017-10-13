@@ -18,11 +18,14 @@ GO
 ALTER TABLE [dbo].[StockOrder] DROP CONSTRAINT [FK_StockOrder_Customer]
 GO
 
-/****** Object:  Table [dbo].[StockOrder]    Script Date: 10/11/17 20:24:22 ******/
+ALTER TABLE [dbo].[StockOrder] DROP CONSTRAINT [DF_StockOrder_Paid]
+GO
+
+/****** Object:  Table [dbo].[StockOrder]    Script Date: 10/12/17 20:05:36 ******/
 DROP TABLE [dbo].[StockOrder]
 GO
 
-/****** Object:  Table [dbo].[StockOrder]    Script Date: 10/11/17 20:24:22 ******/
+/****** Object:  Table [dbo].[StockOrder]    Script Date: 10/12/17 20:05:36 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -34,13 +37,17 @@ CREATE TABLE [dbo].[StockOrder](
 	[CustomerID] [int] NOT NULL,
 	[InventoryID] [int] NOT NULL,
 	[Quantity] [smallint] NOT NULL,
-	[Date] [date] NOT NULL,
-	[Paid] [bit] NOT NULL DEFAULT 0,
+	[Time] [timestamp] NOT NULL,
+	[Paid] [bit] NOT NULL,
+	[SellPrice] [smallmoney] NOT NULL,
  CONSTRAINT [PK_StockOrder] PRIMARY KEY CLUSTERED 
 (
 	[StockOrderID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[StockOrder] ADD  CONSTRAINT [DF_StockOrder_Paid]  DEFAULT ((0)) FOR [Paid]
 GO
 
 ALTER TABLE [dbo].[StockOrder]  WITH CHECK ADD  CONSTRAINT [FK_StockOrder_Customer] FOREIGN KEY([CustomerID])

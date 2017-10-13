@@ -15,11 +15,11 @@ GO
 ALTER TABLE [dbo].[Inventory] DROP CONSTRAINT [FK_Inventory_Product]
 GO
 
-/****** Object:  Table [dbo].[Inventory]    Script Date: 10/11/17 20:27:07 ******/
+/****** Object:  Table [dbo].[Inventory]    Script Date: 10/12/17 20:09:52 ******/
 DROP TABLE [dbo].[Inventory]
 GO
 
-/****** Object:  Table [dbo].[Inventory]    Script Date: 10/11/17 20:27:07 ******/
+/****** Object:  Table [dbo].[Inventory]    Script Date: 10/12/17 20:09:52 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -33,10 +33,10 @@ CREATE TABLE [dbo].[Inventory](
 	[Material] [nvarchar](50) NULL,
 	[Size] [nvarchar](50) NULL,
 	[Color] [nvarchar](50) NULL,
-	[Quantity] [smallint] NOT NULL,
-	[Price] [smallmoney] NOT NULL,
-	[Cost] [smallmoney] NULL,
+	[ListPrice] [smallmoney] NOT NULL,
+	[ProductionCost] [smallmoney] NULL,
 	[MadeOn] [date] NULL,
+	[PictureURL] [nvarchar](50) NULL,
  CONSTRAINT [PK_Inventory] PRIMARY KEY CLUSTERED 
 (
 	[InventoryID] ASC
