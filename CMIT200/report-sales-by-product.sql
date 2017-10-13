@@ -1,5 +1,8 @@
 USE CraftStoreDB_DEV
+GO
 
-SELECT [ProductID], p.name, (sum([StockOrder].[Quantity] * [StockOrder].[SellPrice] AS sales
-    FROM [ProductType]  LEFT JOIN sales s USING ([ProductID])
-    GROUP BY [ProductID], p.name, [StockOrder].[SellPrice]
+ SELECT [dbo].[StockOrder].[InventoryID], sum([dbo].[StockOrder].[SellPrice]*[dbo].[StockOrder].[Quantity]) 
+ FROM [StockOrder] 
+ INNER JOIN [dbo].[Inventory]
+ ON [dbo].[StockOrder].[InventoryID] = [dbo].[Inventory].[InventoryID]
+ GROUP BY [dbo].[StockOrder].[InventoryID];
