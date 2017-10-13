@@ -12,6 +12,12 @@
 USE [master]
 GO
 
+IF EXISTS (SELECT 1 FROM sys.databases WHERE [Name] = 'CraftStoreDB_QA')
+BEGIN
+	DROP DATABASE [CraftStoreDB_QA]
+END
+GO
+
 /****** Object:  Database [CraftStoreDB_QA]    Script Date: 10/12/17 21:12:14 ******/
 CREATE DATABASE [CraftStoreDB_QA]
  CONTAINMENT = NONE

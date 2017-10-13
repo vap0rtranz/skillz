@@ -35,10 +35,10 @@ CREATE TABLE [dbo].[CustomerContact](
 	[MailingAddressCity] [nvarchar](50) NULL,
 	[MailingAddressState] [nvarchar](50) NULL,
 	[MailingAddressZip] [int] NULL,
-	[BillingAddressStreet] [nvarchar](50) NOT NULL,
-	[BillingAddressCity] [nvarchar](50) NOT NULL,
-	[BillingAddressState] [nvarchar](50) NOT NULL,
-	[BillingAddressZip] [int] NOT NULL,
+	[BillingAddressStreet] [nvarchar](50) NULL,
+	[BillingAddressCity] [nvarchar](50) NULL,
+	[BillingAddressState] [nvarchar](50) NULL,
+	[BillingAddressZip] [int] NULL,
 	[EmailAddress] [nvarchar](50) NULL,
 	[PhoneNumber] [int] NULL
 ) ON [PRIMARY]

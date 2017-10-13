@@ -35,8 +35,8 @@ CREATE TABLE [dbo].[Inventory](
 	[Material] [nvarchar](50) NULL,
 	[Size] [nvarchar](50) NULL,
 	[Color] [nvarchar](50) NULL,
-	[ListPrice] [smallmoney] NOT NULL,
-	[ProductionCost] [smallmoney] NULL,
+	[ListPrice] [money] NOT NULL,
+	[ProductionCost] [money] NULL,
 	[MadeOn] [date] NULL,
 	[PictureURL] [nvarchar](50) NULL,
  CONSTRAINT [PK_Inventory] PRIMARY KEY CLUSTERED 
