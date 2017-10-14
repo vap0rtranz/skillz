@@ -1,0 +1,36 @@
+html {margin:0; padding:0;}
+
+body {
+	font-family: sans-serif, serif, fixed-width;
+	color: black;
+	background-color: lightgray;
+}
+
+h3 {
+	font-size: 14px;
+}
+
+p {
+	font-size: 12px;
+}
+
+input {
+	font-size: 12px;
+}
+
+select {
+	font-size: 11px;
+}
+
+textarea {
+	font-size: 12px;
+	font-family: sans-serif, fixed-width;
+}
+
+.textblue {
+	color: blue;
+}
+
+.textdisabled {
+	background-color: gray;
+}

@@ -1,0 +1,45 @@
+code {
+  background: green;
+  color: white; 
+  display: block;
+  font: 14px/24px "Courier New", Courier;
+  padding: 12px 7.5px;
+  text-align: center;
+}
+header,
+section,
+aside,
+footer {
+  margin: 0 0.5% 12px 0.5%;
+}
+section {
+  float: left;
+  width: 60%;
+}
+aside {
+  float: right;
+  width: 38%;
+}
+footer {
+  clear: both;
+  margin-bottom: 0;
+}
+header:hover, 
+section:hover, 
+aside:hover, 
+footer:hover {
+	background: lightgray;
+}
+details {
+	display:block; 
+	width:300px;
+	margin:10px 0;
+}
+summary {
+	display:block; 
+	background:#99B92C;
+	color:white;
+	border-radius:5px;
+	padding:5px;
+	cursor:pointer;font-weight:bold;
+}

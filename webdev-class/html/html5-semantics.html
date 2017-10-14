@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- deprecated
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="web dev class.">
+  <meta name="keywords" content="HTML,HTML5,CSS,CSS3,PHP,PHP5,JavaScript,MySQL,MySQL5">
+  <meta translate="no" name="author" content="vap0rtranz">
+  <link rel="stylesheet" href="/css/html5-semantics.css" type="text/css" />
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  <title>HTML5 Doc Features</title>
+</head>
+<body>
+<header id="homepage_header">
+<nav id="header_nav">
+  <ul>
+    <li><a href="/html/">HTML</a></li>
+    <li><a href="/css/">CSS</a></li>
+    <li><a href="/images/">Images</a></li>
+  </ul>
+  <p><a href=#footer_nav>Bottom</a></p>
+</nav>
+</header>
+<section>
+  <h1>HTML5 likes h1-h6!</h1>
+    <p>
+      Here is a SECTION
+    </p>
+</section>
+<article>
+  <h2>article header for multimedia in HTML5</h2>
+  <p>
+    Blurb from ARTICLE
+  </p>
+  <audio controls>
+    <source src="https://archive.org/download/ChildsPlay2-Trial/ChildsPlay-2-stereo-gainfix.ogg" type=audio/ogg>
+   Your browser does not support audio controls.  Please upgrade your browser. 
+  </audio>
+  <aside>As an Aside ...
+    <figure>
+      <img src="/images/ameliespoon.gif" alt="Amelie Spoon"> 
+      <figcaption>Imagine...</figcaption>
+    </figure>
+  </aside>
+</article>
+<article>
+  <h2>Form article header</h2>
+  <p>
+    Another ARTICLE, about Forms
+  </p>
+  <form itemscope itemtype="http://www.schema.org/Person">
+    <br>
+    <label for="range_number">Number range:</label>
+    <input type="number" name="range_number" id="range_number" min="1" max="5">
+    <br>
+    <label for="bounded_text">Text box:</label>
+    <input type="text" name="bounded_text" id="bounded_text" maxlength="10">
+    <br>
+    <label for="bounded_email">Email:</label>
+    <input type="email" name="bounded_email" id="bounded_email" itemprop="email" maxlength="20">
+    <br>
+    <label for="future_date">Date:</label>
+    <input type="date" name="future_date" id="future_date" min="2015-01-01" max="2020-12-31">
+    <br>
+    <label for="confidence_range">Scale (0 to 3):</label>
+    <input type="range" name="confidence_range" id="confidence_range" min="0" max="3">
+    <br>
+    <label for="date_time">Date & Time?</label>
+    <input type="datetime-local" name="date_time" id="date_time">
+    <br>
+    <label for="home_url">Website:</label>
+    <input type="url" name="home_url" id="home_url">
+    <br><br>
+    <input type="submit" value="Check">
+  </form> 
+</article>
+<footer id="homepage_footer">
+ <hr>
+ <nav id="footer_nav">
+  <p><a href=#header_nav>Top</a></p>
+  <ul>
+    <li><a href="/html/">HTML</a></li>
+    <li><a href="/css/">CSS</a></li>
+    <li><a href="/images/">Images</a></li>
+  </ul>
+  </nav>
+  <p>FOOTER: <a href="mailto:vap0rtranz@gmail.com">Email the author</a>.</p>
+  <a href="http://www.w3.org/html/logo/">
+    <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+  </a>
+  <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" title="W3C Validated CSS!"/>
+  </a>
+</footer> 
+</body>
+</html>

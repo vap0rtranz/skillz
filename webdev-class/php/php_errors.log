@@ -1,0 +1,89 @@
+[30-May-2015 20:15:35 UTC] PHP Parse error:  syntax error, unexpected ''Hello world from Cloud9!' (T_ENCAPSED_AND_WHITESPACE) in /home/ubuntu/workspace/php/hello-world.php on line 6
+[30-May-2015 20:21:01 UTC] PHP Parse error:  syntax error, unexpected ''Hello world from Cloud9!' (T_ENCAPSED_AND_WHITESPACE) in /home/ubuntu/workspace/php/hello-world.php on line 6
+[30-May-2015 21:29:38 UTC] PHP Warning:  mysql_real_escape_string(): No such file or directory in /home/ubuntu/workspace/php/clean_form.php on line 43
+[30-May-2015 21:29:38 UTC] PHP Stack trace:
+[30-May-2015 21:29:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:29:38 UTC] PHP   2. mysql_real_escape_string() /home/ubuntu/workspace/php/clean_form.php:43
+[30-May-2015 21:29:38 UTC] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/ubuntu/workspace/php/clean_form.php on line 43
+[30-May-2015 21:29:38 UTC] PHP Stack trace:
+[30-May-2015 21:29:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:29:38 UTC] PHP   2. mysql_real_escape_string() /home/ubuntu/workspace/php/clean_form.php:43
+[30-May-2015 21:29:38 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/clean_form.php on line 47
+[30-May-2015 21:29:38 UTC] PHP Stack trace:
+[30-May-2015 21:29:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:29:38 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:47
+[30-May-2015 21:29:38 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/clean_form.php on line 47
+[30-May-2015 21:29:38 UTC] PHP Stack trace:
+[30-May-2015 21:29:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:29:38 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:47
+[30-May-2015 21:32:03 UTC] PHP Warning:  mysql_real_escape_string(): No such file or directory in /home/ubuntu/workspace/php/clean_form.php on line 25
+[30-May-2015 21:32:03 UTC] PHP Stack trace:
+[30-May-2015 21:32:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:32:03 UTC] PHP   2. mysql_real_escape_string() /home/ubuntu/workspace/php/clean_form.php:25
+[30-May-2015 21:32:03 UTC] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/ubuntu/workspace/php/clean_form.php on line 25
+[30-May-2015 21:32:03 UTC] PHP Stack trace:
+[30-May-2015 21:32:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:32:03 UTC] PHP   2. mysql_real_escape_string() /home/ubuntu/workspace/php/clean_form.php:25
+[30-May-2015 21:32:03 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/clean_form.php on line 27
+[30-May-2015 21:32:03 UTC] PHP Stack trace:
+[30-May-2015 21:32:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:32:03 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:27
+[30-May-2015 21:32:03 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/clean_form.php on line 27
+[30-May-2015 21:32:03 UTC] PHP Stack trace:
+[30-May-2015 21:32:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:32:03 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:27
+[30-May-2015 21:35:14 UTC] PHP Warning:  mysql_real_escape_string(): No such file or directory in /home/ubuntu/workspace/php/clean_form.php on line 29
+[30-May-2015 21:35:14 UTC] PHP Stack trace:
+[30-May-2015 21:35:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:35:14 UTC] PHP   2. mysql_real_escape_string() /home/ubuntu/workspace/php/clean_form.php:29
+[30-May-2015 21:35:14 UTC] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/ubuntu/workspace/php/clean_form.php on line 29
+[30-May-2015 21:35:14 UTC] PHP Stack trace:
+[30-May-2015 21:35:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:35:14 UTC] PHP   2. mysql_real_escape_string() /home/ubuntu/workspace/php/clean_form.php:29
+[30-May-2015 21:35:14 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/clean_form.php on line 31
+[30-May-2015 21:35:14 UTC] PHP Stack trace:
+[30-May-2015 21:35:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:35:14 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:31
+[30-May-2015 21:35:14 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/clean_form.php on line 31
+[30-May-2015 21:35:14 UTC] PHP Stack trace:
+[30-May-2015 21:35:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:35:14 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:31
+[30-May-2015 21:36:25 UTC] PHP Warning:  mysqli_real_escape_string() expects exactly 2 parameters, 1 given in /home/ubuntu/workspace/php/clean_form.php on line 29
+[30-May-2015 21:36:25 UTC] PHP Stack trace:
+[30-May-2015 21:36:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:36:25 UTC] PHP   2. mysqli_real_escape_string() /home/ubuntu/workspace/php/clean_form.php:29
+[30-May-2015 21:36:25 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/clean_form.php on line 31
+[30-May-2015 21:36:25 UTC] PHP Stack trace:
+[30-May-2015 21:36:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:36:25 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:31
+[30-May-2015 21:36:25 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/clean_form.php on line 31
+[30-May-2015 21:36:25 UTC] PHP Stack trace:
+[30-May-2015 21:36:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:36:25 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:31
+[30-May-2015 21:38:14 UTC] PHP Warning:  mysql_query(): No such file or directory in /home/ubuntu/workspace/php/clean_form.php on line 31
+[30-May-2015 21:38:14 UTC] PHP Stack trace:
+[30-May-2015 21:38:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:38:14 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:31
+[30-May-2015 21:38:14 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/ubuntu/workspace/php/clean_form.php on line 31
+[30-May-2015 21:38:14 UTC] PHP Stack trace:
+[30-May-2015 21:38:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:38:14 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:31
+[30-May-2015 21:39:11 UTC] PHP Warning:  mysql_query() expects parameter 1 to be string, object given in /home/ubuntu/workspace/php/clean_form.php on line 31
+[30-May-2015 21:39:11 UTC] PHP Stack trace:
+[30-May-2015 21:39:11 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:39:11 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/php/clean_form.php:31
+[30-May-2015 21:50:31 UTC] PHP Catchable fatal error:  Object of class mysqli_result could not be converted to string in /home/ubuntu/workspace/php/clean_form.php on line 37
+[30-May-2015 21:50:31 UTC] PHP Stack trace:
+[30-May-2015 21:50:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:50:44 UTC] PHP Catchable fatal error:  Object of class mysqli_result could not be converted to string in /home/ubuntu/workspace/php/clean_form.php on line 37
+[30-May-2015 21:50:44 UTC] PHP Stack trace:
+[30-May-2015 21:50:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:51:22 UTC] PHP Catchable fatal error:  Object of class mysqli_result could not be converted to string in /home/ubuntu/workspace/php/clean_form.php on line 37
+[30-May-2015 21:51:22 UTC] PHP Stack trace:
+[30-May-2015 21:51:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[30-May-2015 21:55:27 UTC] PHP Catchable fatal error:  Object of class mysqli_result could not be converted to string in /home/ubuntu/workspace/php/clean_form.php on line 41
+[30-May-2015 21:55:27 UTC] PHP Stack trace:
+[30-May-2015 21:55:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/clean_form.php:0
+[31-May-2015 22:56:02 UTC] PHP Parse error:  syntax error, unexpected 'case' (T_CASE) in /home/ubuntu/workspace/php/real-estate-1.php on line 41
+[04-Jun-2015 02:29:18 UTC] PHP Parse error:  syntax error, unexpected '$COOKIE' (T_VARIABLE) in /home/ubuntu/workspace/php/cookie-session.php on line 24
+[04-Jun-2015 02:29:40 UTC] PHP Parse error:  syntax error, unexpected '$_COOKIE' (T_VARIABLE) in /home/ubuntu/workspace/php/cookie-session.php on line 24

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- http-equiv pragma is really not good but often expected by validators.  
+  See http://www.w3.org/TR/html5/document-metadata.html#attr-meta-http-equiv
+  <meta charset="utf-8">
+  -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="homepage of real estate company King's">
+  <meta name="keywords" content="real estate, property, Chicago, St. Louis, Orlando">
+  <meta name="author" content="vap0rtranz">
+  <link rel="stylesheet" href="/css/real-estate-1.css" type="text/css" >
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  <title>King Real Estate - Homepage</title>
+</head>
+<body>
+<header id="homepage_header">
+<h1>King Real Estate</h1>
+ <nav id="header_nav">
+  <ul>
+    <li><a href=#footer_nav>Bottom</a></li>
+  </ul>
+ </nav> 
+</header>
+<section id="contact_section">
+<h2>Guest Book - Contact Request</h2>
+<form method="post" action="/php/real-estate-1.php">
+	<p><label for="firstname_text">First Name:<input type="text" name="firstname_text" id="firstname_text" maxlength="20" required="required" autocomplete="on" autofocus="autofocus"></label></p>
+	<p><label for="lastname_text">Last Name:<input type="text" name="lastname_text" id="lastname_text" autocomplete="on" required="required" maxlength="20"></label></p>
+	<fieldset>
+	    <legend>Location:</legend>
+	    <p><label for="location_A"><input type="radio" name="location_radio" id="location_A" value="Chicago" checked="checked">Chicago</label></p>
+	    <p><label for="location_B"><input type="radio" name="location_radio" id="location_B" value="St. Louis">St. Louis</label></p>
+	    <p><label for="location_C"><input type="radio" name="location_radio" id="location_C" value="Orlando">Orlando</label></p>
+	</fieldset>
+    <p><label for="contact_select">Preferred Contact:</label>
+	<select name="contact_select" id="contact_select" size="1">
+		<option value="email" selected="selected">Email</option>
+		<option value="phone">Phone</option>
+	</select>
+	<p><label for="bounded_email">Email:<input type="email" name="bounded_email" id="bounded_email" maxlength="30" placeholder="your.name@mail.com" autocomplete="on"></label></p>
+	<p><label for="bounded_tel">Phone:<input type="tel" name="bounded_tel" id="bounded_tel" maxlength="15" placeholder="1.234.567.0000" autocomplete="on"></label></p>
+	<p><label for="comments_textarea">Comments!<textarea name="comments_textarea" id="comments_textarea" placeholder='neighborhood, # of rooms, price range, etc. ...' maxlength="500" rows="1" cols="25"></textarea></label></p>
+	<p><button>Submit</button></p>
+</form>
+</section>
+<footer id="homepage_footer">
+ <hr>
+ <nav id="footer_nav">
+  <ul>
+    <li><a href=#header_nav>Top</a></li>
+  </ul>
+  </nav>
+  <p><a href="mailto:vap0rtranz@gmail.com">Email the author</a></p>
+  <a href="http://www.w3.org/html/logo/">
+    <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+  </a>
+  <a href="https://jigsaw.w3.org/css-validator/">
+    <img src="https://jigsaw.w3.org/css-validator/images/vcss" width="88" height="31" alt="Valid CSS!" title="W3C Validated CSS!"/>
+  </a>
+</footer> 
+</body>
+</html>

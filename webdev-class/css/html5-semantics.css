@@ -1,0 +1,24 @@
+header,footer,section,article {
+    border:1px solid red;margin:5px;margin-bottom:15px;padding:8px;background-color:gray;
+}
+header,footer {
+    color:white;background-color:yellowgreen;margin-bottom:1px;
+}
+section {
+    color:white;background-color:seagreen;
+}
+article {
+    color:white;background-color:green;
+}
+nav ul  {
+    margin:0;padding:0;
+}
+nav ul li {
+    margin:1px;
+}
+nav ul  {
+    margin:0;padding:0;
+}
+nav ul li {
+    margin:1px;
+}

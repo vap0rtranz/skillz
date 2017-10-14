@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Simple Blog</title>
+	<link rel="stylesheet" href="/css/html5-new-struct.css">
+</head>
+<body>
+<main role="main">
+<header><h1>body header H1 more h1</h1></header>
+<nav>
+	<ul>
+		<li hidden>Unordered, List SPAN</li>
+		<li><a href="">list a</a></li>
+		<li><a href="">list b</a></li>
+	</ul>
+</nav>
+<section>
+  <header><h2>section header H2</h2></header>
+  <article>
+    <header><h3><a href="">article header H1 A</a></h3>
+      This example is a modified version of <a href="http://netstream.ru/htmlsamples/html5-blog/index.html">http://netstream.ru/htmlsamples/html5-blog/index.html</a>
+    </header>
+    <p>Try to move the mouse on different elements. The structure will be highlighted and you will be able to see the different inclusions of elements one in each other. If you move the cursor to this sentence, it will be highlighted in dark grey, showing the presence of an &lt;article&gt; element, surrounded by a &lt;section&gt; element (light grey), etc. So we have some articles in a single section element. The page title at the top is a &lt;header&gt; element, while  the tag cloud on the right is a &lt;aside&gt; element. The main menu on top (with Blog, About, Contact) is a &lt;nav&gt; element.</p>
+     <figure>
+  		<img src="http://www.fredcavazza.net/files/2009/09/html5_structure.png" alt="Figure" />
+  		<figcaption>
+    	Fig. 1 :. This page put a &lt;nav&gt; on top, and does not have headers and footer for each article, like in this figure, but it could... By the way, this is a &lt;figcaption&gt; inside a &lt;figure&gt; element...
+  		</figcaption>
+			</figure>
+  </article>
+	<article>
+		<header><h3><a href="">article header H1 A</a></h3></header>
+		  <nav>
+       <ul>
+           <li><a href="...">Next post</a></li>
+           <li><a href="...">Previous post</a></li>
+           <li><a href="...">Contact author</a></li>
+       </ul>
+    </nav>
+   <p>Content...</p>
+   <footer>
+     <p>Posted by Michel, the <time datetime="2012-02-02">February 2, 
+     2012</time> </p>
+   </footer>
+	</article>
+	<article>
+		<header><h3><a href="">article header H1 A</a></h3></header>
+		<p>The second concrete syntax uses XML, and is known as  XHTML5 . When a document is transmitted with an XML MIME type, such as application/xhtml+xml, then it is processed by an XML processor by Web browsers, and treated as an  XHTML5  document. Authors are reminded that the processing for XML and HTML differs; in particular, even minor syntax errors will prevent an XML document from being rendered fully, whereas they would be ignored in the  HTML5  syntax.</p>
+		<p>The  DOM5 HTML ,  HTML5 , and  XHTML5  representations cannot all represent the same content. For example, namespaces cannot be represented using  HTML5 , but they are supported in  DOM5 HTML  and  XHTML5 . Similarly, documents that use the noscript feature can be represented using  HTML5 , but cannot be represented with  XHTML5  and  DOM5 HTML . Comments that contain the string  ->  can be represented in  DOM5 HTML  but not in  HTML5  and  XHTML5 . And so forth.</p>
+	</article>
+</section>
+<aside>
+	<h1>aside H1</h1>
+	<ul class="tag-cloud">
+		<li><a href="" rel="tag" class="w2">ajax</a></li>
+		<li><a href="" rel="tag" class="w8">apple</a></li>
+		<li><a href="" rel="tag" class="w3">css</a></li>
+		<li><a href="" rel="tag" class="w6">firefox</a></li>
+		<li><a href="" rel="tag" class="w8">google</a></li>
+		<li><a href="" rel="tag" class="w2">html</a></li>
+		<li><a href="" rel="tag" class="w2">internet explorer</a></li>
+		<li><a href="" rel="tag" class="w6">iphone</a></li>
+		<li><a href="" rel="tag" class="w9">css3</a></li>
+		<li><a href="" rel="tag" class="w2">ipod</a></li>
+		<li><a href="" rel="tag" class="w5">javascript</a></li>
+		<li><a href="" rel="tag" class="w1">jquery</a></li>
+		<li><a href="" rel="tag" class="w2">mac</a></li>
+		<li><a href="" rel="tag" class="w4">opera</a></li>
+		<li><a href="" rel="tag" class="w2">rss</a></li>
+		<li><a href="" rel="tag" class="w10">html5</a></li>
+		<li><a href="" rel="tag" class="w2">web</a></li>
+		<li><a href="" rel="tag" class="w8">web 2.0</a></li>
+		<li><a href="" rel="tag" class="w1">web-??????????</a></li>
+		<li><a href="" rel="tag" class="w3">windows</a></li>
+		<li><a href="" rel="tag" class="w2">yahoo</a></li>
+		<li><a href="" rel="tag" class="w7">youtube</a></li>
+	</ul>
+</aside>
+<footer>
+	<p>footer &copy; 2015</p>
+</footer>
+</main>
+</body>
+</html>

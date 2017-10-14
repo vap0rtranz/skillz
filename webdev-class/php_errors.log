@@ -1,0 +1,9 @@
+[30-May-2015 01:49:31 UTC] PHP Parse error:  syntax error, unexpected ''Hello world from Cloud9!;' (T_ENCAPSED_AND_WHITESPACE) in /home/ubuntu/workspace/php/hello-world.php on line 6
+[30-May-2015 02:00:26 UTC] PHP Parse error:  syntax error, unexpected '$', expecting ',' or ';' in /home/ubuntu/workspace/php/hello-world.php on line 11
+[30-May-2015 02:06:09 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/ubuntu/workspace/php/hello-world.php on line 16
+[30-May-2015 20:10:38 UTC] PHP Parse error:  syntax error, unexpected ''Hello world from Cloud9!' (T_ENCAPSED_AND_WHITESPACE) in /home/ubuntu/workspace/php/hello-world.php on line 6
+[30-May-2015 20:11:07 UTC] PHP Parse error:  syntax error, unexpected ''Hello world from Cloud9!' (T_ENCAPSED_AND_WHITESPACE) in /home/ubuntu/workspace/php/hello-world.php on line 6
+[30-May-2015 20:11:28 UTC] PHP Parse error:  syntax error, unexpected ''Hello world from Cloud9!' (T_ENCAPSED_AND_WHITESPACE) in /home/ubuntu/workspace/php/hello-world.php on line 6
+[30-May-2015 20:11:49 UTC] PHP Parse error:  syntax error, unexpected ''Hello world from Cloud9!' (T_ENCAPSED_AND_WHITESPACE) in /home/ubuntu/workspace/php/hello-world.php on line 6
+[30-May-2015 20:12:20 UTC] PHP Parse error:  syntax error, unexpected ''Hello world from Cloud9!' (T_ENCAPSED_AND_WHITESPACE) in /home/ubuntu/workspace/php/hello-world.php on line 6
+[30-May-2015 20:13:53 UTC] PHP Parse error:  syntax error, unexpected ''Hello world from Cloud9!' (T_ENCAPSED_AND_WHITESPACE) in /home/ubuntu/workspace/php/hello-world.php on line 6

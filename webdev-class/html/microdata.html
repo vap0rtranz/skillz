@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<link rel="stylesheet" href="/css/microdata.css">
+<title>Microdata</title>
+</head>
+<body>
+  <section itemscope itemtype="http://schema.org/Person">
+     <h2>Contact Information</h2>
+     <dl>
+         <dt>Name</dt>
+           <dd itemprop="name">Michel Buffa</dd>
+         <dt>Position</dt>
+           <dd><span
+               itemprop="jobTitle">Professor/Researcher/Scientist
+             </span> for
+             <span itemprop="affiliation">University of Nice,
+                    France
+             </span>
+          </dd>
+          <dt>Address</dt>
+           <dd itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+           <span itemprop="streetAddress">10 promenade des anglais</span><br>
+           <span itemprop="addressLocality">Nice</span>,
+           <span itemprop="addressRegion">Alpes maritimes, France</span>
+           <span itemprop="postalCode">06410</span><br>
+           <span itemprop="addressCountry" itemscope itemtype="http://schema.org/Country">
+           <span itemprop="name">France</span>
+           </dd>
+     </span>
+</dd>
+     </dl>
+     <h1>My different online public accounts</h1>
+     <ul>
+         <li><a href="http://www.twitter.com/micbuffa"
+             itemprop="url">Twitter profile</a></li>
+         <li><a href="http://www.blogger.com/micbuffa"
+             itemprop="url">Michel Buffa's blog</a></li>
+     </ul>
+  </section>
+</body>
+</html>

@@ -1,0 +1,127 @@
+body {
+	position: relative;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	width: 640px;
+	margin-bottom: 150px;
+}
+
+table {
+	border-spacing: 0;
+	width: 100%;
+	border: 1px solid #dddddd;
+	border-collapse: separate;
+	border-left: 0;
+	border-radius: 4px;
+}
+
+tbody>tr:nth-child(odd)>td {
+	background-color: lightGrey;
+}
+
+tr {
+	border-collapse: separate;
+}
+
+th,td {
+	padding: 8px;
+	line-height: 20px;
+	text-align: left;
+	vertical-align: top;
+	border-left: 1px solid #dddddd;
+}
+
+td {
+	border-top: 1px solid #dddddd;
+}
+
+tbody:last-child tr:last-child>td:first-child {
+	border-bottom-left-radius: 4px;
+}
+
+tbody:last-child tr:last-child>td:last-child {
+	border-bottom-right-radius: 4px;
+}
+
+nav ul {
+	padding: 8px 15px;
+	margin: 0 0 20px;
+	list-style: none;
+	border-radius: 4px;
+}
+
+nav li {
+	display: inline-block;
+	text-shadow: 0 1px 0 #ffffff;
+}
+
+nav li a {
+	text-decoration: none;
+}
+
+button {
+	padding: 4px 12px;
+	color: #333333;
+}
+
+
+section button {
+	position: absolute;
+	right: 0px;
+	margin-top: 20px;
+}
+
+footer button {
+	top: 15px;
+	position: absolute;
+	right: 10px;
+}
+
+
+footer {
+	position: fixed;
+	bottom: 0px;
+	background-color: lightGrey;
+	height: 60px;
+	left: 0px;
+	text-align: center;
+	width: 100%;
+	line-height: 60px;
+	font-weight: bold;
+}
+
+
+input {
+	margin-bottom: 10px;
+}
+
+input[type=range] {
+	width: 225px;
+}
+
+label {
+	display: block;
+}
+
+
+label > span {
+	display: inline-block;
+	width: 250px;
+	line-height: 35px;
+	vertical-align: top;
+}
+
+input {
+	width: 250px;
+	height: 20px;
+	padding: 4px 6px;
+	font-size: 14px;
+	line-height: 20px;
+	vertical-align: middle;
+	border-radius: 4px;
+}
+
+fieldset {
+	border-radius: 4px;
+}

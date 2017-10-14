@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/html5-contact-form.css">
+<title>Contact manager</title>
+</head>
+<body>
+	<header>
+		<h1>Contact manager</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="index.html">Welcome</a></li>
+			<li>/</li>
+			<li>Contacts</li>
+		</ul>
+	</nav>
+  <section>
+    <article id="formContacts">
+      <header>
+        <h1>Add / Modify a contact</h1>
+      </header>
+      <details>
+        <summary>
+          Click to show the form.
+        </summary>
+			<form method="post">
+				<fieldset>
+					<legend>New contact</legend>
+					<label>
+						<span>Last name:</span>
+						<input type="text" maxlength="32" required>
+					</label>
+					<label>
+						<span>First name:</span>
+						<input type="text" maxlength="32" required >
+					</label>
+                  					<label>
+						<span>Telephone :</span>
+						<input type="tel" pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$
+" required>
+					</label>
+
+					<label>
+						<span>Email:</span>
+						<input type="email" maxlength="128">
+					</label>
+					<label>
+						<span>Birthdate:</span>
+						<input type="date">
+					</label>
+					<label>
+						<span>Children:</span>
+						0 <input type="range" min="0" max="5" required> 5
+					</label>					
+				</fieldset>
+				<button id="modify-client" type="submit">OK</button>
+			</form>	
+      </details>
+    </article>
+	<article id="contacts">
+		<header>
+			<h1>Contact list</h1>
+		</header>
+			<table>
+				<thead>
+					<tr>
+						<th>First name</th>
+						<th>Last name</th>
+                        <th>Phone</th>
+						<th>Email</th>
+                      	<th>Birthdate</th>
+						<th>Children</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Jean</td>
+						<td>Marais</td>
+						<td>0613243443</td>
+						<td>jeanmarais@acteur.fr</td>       <td>17/08/1945</td>
+
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>Johnny</td>
+						<td>Halliday</td>
+						<td>0656453434</td>
+						<td>johnny.halliday@rocker.fr</td>
+                        <td>17/08/1952</td>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td>Eddy</td>
+						<td>Mitchell</td>
+						<td>0656453423</td>
+						<td>eddy.mitchell@rocker.fr</td>
+                        <td>17/08/1956</td>
+						<td>2</td>
+					</tr>
+				</tbody>
+			</table>
+			<button id="create-contact">New contact</button>
+	</article>
+    </section>
+
+
+	<footer>This example uses polyfills</footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- deprecated
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  -->
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="/css/html5-semantics.css" type="text/css" />
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  <title>PHP Security Testing</title>
+</head>
+<body>
+
+<h1>HTML Forms that POST aren't all that they seem</h3>
+
+<form method="post" action="/php/clean_form.php">
+	<br>
+	<label for="username_text">Username:</label>
+    <input type="text" name="username_text" id="username_text" maxlength="10">
+    <br>
+    <label for="pet_select">Pet:</label>
+	<select name="pet_select" id="pet_select" size="1">
+		<option value="Dog">Dog</option>
+		<option value="Cat">Cat</option>
+		<option value="Bird">Bird</option>
+	</select>
+	<br>
+	<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
