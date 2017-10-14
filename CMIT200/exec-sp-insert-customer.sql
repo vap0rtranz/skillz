@@ -1,7 +1,11 @@
+-- creates a new customer
+-- executed as stored procedure in a transaction for an INSERT
+-- returns the IDENTITY of the new row to verify creation
+
 USE CraftStoreDB_QA;
 
 -- setup variable to capture OUTPUT
-DECLARE @CustomerIDOut INT;
+DECLARE @CustomerIDOut int;
 
 EXEC dbo.InsertCustomer 
 -- capture output parameter labelled CustomerID

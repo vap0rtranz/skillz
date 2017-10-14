@@ -1,13 +1,15 @@
+-- =============================================
+-- Author:		<Justin Pittman>
+-- Create date: <Oct 11, 2017>
+-- Description:	stored procedure for adding new customer
+-- =============================================
+
 -- setup
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
--- =============================================
--- Author:		<Justin Pittman>
--- Create date: <Oct 11, 2017>
--- Description:	<testing SP>
--- =============================================
+
 USE CraftStoreDB_QA;
 
 DECLARE @CustomerID int;
