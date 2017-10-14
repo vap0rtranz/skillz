@@ -2,7 +2,7 @@
 -- IDENTITY columns (ID) should be auto re-created during import (so ignored in data file)
 -- note CSV files must have either each field quoted (") or no field quoted
 
-USE CraftStoreDB_QA;
+USE CraftStoreDB_Stage;
 
 BULK INSERT [dbo].[Customer] 
 FROM 'c:\temp\CraftStoreDB-Dev-Data - Customer.csv' 
