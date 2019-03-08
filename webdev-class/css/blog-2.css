@@ -1,0 +1,46 @@
+header,footer,section {
+    border:1em black;
+    margin:.5em;
+    padding:.5em;
+    background-color:gray;
+}
+header,footer {
+    color:white;
+    background-color:darkred;
+    margin-bottom:.5em;
+}
+body {
+	font-family: sans-serif, serif;
+	color: black;
+	background-color: firebrick;
+}
+nav {
+}
+section {
+	float: left;
+	width: 75%;
+    color:white;
+    background-color:darkred;
+}
+aside {
+	float:right;
+	width: 25%;
+}
+footer {
+	clear: both;
+}
+h1 {
+	font-size: 2em;
+}
+h2 {
+	font-size: 1.5em;
+}
+p {
+	font-size: 1em;
+}
+a:hover {
+	text-decoration:underline;
+}
+nav:hover {
+	background: gray
+}

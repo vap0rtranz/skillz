@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+  if broken, insert line 1 as: <?xml version="1.0" encoding="UTF-8"?>
+-->
+<html lang="en">
+<!-- HEAD -->
+<head>
+  <!-- http-equiv pragma is really not good but often expected by validators.  
+  See http://www.w3.org/TR/html5/document-metadata.html#attr-meta-http-equiv
+  all that should be needed for this line is: <meta charset="utf-8">
+  -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Justin Pittman - Red Hat People page">
+  <meta name="keywords" content="HTML,HTML5,CSS,CSS3">
+  <meta translate="no" name="author" content="Justin Pittman">
+  <link rel="stylesheet" href="../css/blog-2.css" type="text/css" >
+  <title>Blog - Homepage</title>
+</head>
+<!-- BODY -->
+<body>
+<main role="main">
+<!-- HEADER: NAVBAR -->
+<header id="homepage_header">
+<h1>Navigation Bar</h1>
+ <nav id="header_nav">
+  <ul>
+   <li id="MyLogo"><img src="../images/ameliespoon.gif" />
+   <li id="Cheatsheets"><a href="../docs/cheatsheets">CheatSheets</li>
+   <li id="HowTos"><a href="../docs/howtos">HowTos</li>
+   <li id="Presentations"><a href="../docs/presos">Presentations</li>
+   <li id="Code"><a href="https://github.com/vap0rtranz">Code</li>
+   <li><a href=#footer_nav>Bottom</a></li>
+  </ul>
+ </nav> 
+</header>
+<!-- SECTION -->
+<section id="blog_section">
+  <article>
+	<details>
+	  <summary>Blog Entry 1</summary>
+		<p>published by Justin <time datetime="2019-03-07">March 7, 2019</time></p>
+		<p><code>some code here</code></p>
+		<p>Download <a href="../images/j.png" download="my-logo.png">my logo</a></p>
+	 </details>
+	</article>
+</section>
+<!--ASIDE-->
+<aside>
+   <h1>Fun Stuff</h1>
+     <audio controls><source src="https://archive.org/download/ChildsPlay2-Trial/ChildsPlay-2-stereo-gainfix.ogg" type=audio/ogg></audio>
+	 <audio controls autoplay><source src="https://ia800503.us.archive.org/35/items/ModemSound/ModemSound1.ogg" type=audio/ogg></audio>
+</aside>
+<!-- FOOTER -->
+<footer id="homepage_footer">
+ <hr>
+ <nav id="footer_nav">
+  <ul>
+    <li><a href=#header_nav>Top</a></li>
+  </ul>
+  </nav>
+  <p><a href="mailto:justin.pittman@redhat.com">Email the author</a></p>
+  <a href="http://www.w3.org/html/logo/">
+    <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+  </a>
+  <a href="https://jigsaw.w3.org/css-validator/">
+    <img src="https://jigsaw.w3.org/css-validator/images/vcss" width="88" height="31" alt="Valid CSS!" title="W3C Validated CSS!"/>
+  </a>
+</footer> 
+</body>
+</html>
