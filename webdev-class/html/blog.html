@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+Red Hat People site by Justin Pittman
+this site is Javascript free!  Only HTML5 + CSS3 are used
+-->
+<html lang="en">
+<!-- HEAD -->
+<head>
+	<meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="Justin Pittman - Red Hat People page">
+   <meta name="keywords" content="HTML,HTML5,CSS,CSS3">
+   <meta translate="no" name="author" content="Justin Pittman">
+   <link rel="stylesheet" href="../css/blog.css" type="text/css" />
+	<title>Justin Pittmn - Red Hat People</title>
+</head>
+<!-- BODY -->
+<body>
+<main role="main">
+<!-- HEADER -->
+<header>
+ <h1>Simple Page of Useful Tech Tricks</h1>
+ <nav id="header_nav">
+    <div id="top-menu">
+     <ul>
+      <li id="MyLogo"><img src="../images/ameliespoon.gif" />
+      <li id="Cheatsheets"><a href="../docs/cheatsheets">CheatSheets</li>
+      <li id="HowTos"><a href="../docs/howtos">HowTos</li>
+      <li id="Presentations"><a href="../docs/presos">Presentations</li>
+      <li id="Code"><a href="https://github.com/vap0rtranz">Code</li>
+      <li><input type="text" placeholder="Search" /></li>
+     </ul>
+    </div> 
+</nav>
+</header>
+<!-- SECTION ARTICLES -->
+<section>
+  <header><h2>section header H2</h2></header>
+  <nav>
+          <ul>
+           <li><a href="...">Next post</a></li>
+           <li><a href="...">Previous post</a></li>
+          </ul>
+  </nav>
+  <article>
+    <header><h3><a href="">article header H1 A</a></h3>
+      <p>published by Justin <time datetime="2019-03-07">March 7, 2019</time><p>
+      <p>Try to move the mouse on different elements. The structure will be highlighted and you will be able to see the different inclusions of elements one in each other. If you move the cursor to this sentence, it will be highlighted in dark grey, showing the presence of an &lt;article&gt; element, surrounded by a &lt;section&gt; element (light grey), etc. So we have some articles in a single section element. The page title at the top is a &lt;header&gt; element, while  the tag cloud on the right is a &lt;aside&gt; element. The main menu on top (with Blog, About, Contact) is a &lt;nav&gt; element.</p>
+     <figure>
+  		<img src="http://www.fredcavazza.net/files/2009/09/html5_structure.png" alt="Figure" />
+  		<figcaption>
+    	  Fig. 1 :. This page put a &lt;nav&gt; on top, and does not have headers and footer for each article, like in this figure, but it could... By the way, this is a &lt;figcaption&gt; inside a &lt;figure&gt; element...
+  		</figcaption>
+	  </figure>
+  </article>
+	<article>
+		<header><h3><a href="">article header h3 A</a></h3></header>
+      <p>Content...</p>
+   <footer>
+     <p>footer paragraph<time datetime="2012-02-02">date format</time> </p>
+   </footer>
+	</article>
+	<article>
+		<header><h3><a href="">article header H3 A</a></h3></header>
+		<p>The second concrete syntax uses XML, and is known as  XHTML5 . When a document is transmitted with an XML MIME type, such as application/xhtml+xml, then it is processed by an XML processor by Web browsers, and treated as an  XHTML5  document. Authors are reminded that the processing for XML and HTML differs; in particular, even minor syntax errors will prevent an XML document from being rendered fully, whereas they would be ignored in the  HTML5  syntax.</p>
+		<p>The  DOM5 HTML ,  HTML5 , and  XHTML5  representations cannot all represent the same content. For example, namespaces cannot be represented using  HTML5 , but they are supported in  DOM5 HTML  and  XHTML5 . Similarly, documents that use the noscript feature can be represented using  HTML5 , but cannot be represented with  XHTML5  and  DOM5 HTML . Comments that contain the string  ->  can be represented in  DOM5 HTML  but not in  HTML5  and  XHTML5 . And so forth.</p>
+	</article>
+</section>
+<!--ASIDE-->
+<aside>
+	<h1>Useful References</h1>
+	<ul class="tag-cloud">
+		<li><a href="" rel="tag" class="w2">ajax</a></li>
+		<li><a href="" rel="tag" class="w8">apple</a></li>
+		<li><a href="" rel="tag" class="w3">css</a></li>
+		<li><a href="" rel="tag" class="w6">firefox</a></li>
+		<li><a href="" rel="tag" class="w8">google</a></li>
+	</ul>
+	<ul class="audio">
+	  <li>  
+	  <audio controls>
+       <source src="https://archive.org/download/ChildsPlay2-Trial/ChildsPlay-2-stereo-gainfix.ogg" type=audio/ogg>
+        Your browser does not support audio controls.  Please upgrade your browser. 
+     </audio>
+	  </li>
+	</ul>
+</aside>
+<!--FOOTER-->
+<footer>
+	<footer id="homepage_footer">
+   <hr>
+     <nav id="footer_nav">
+       <p><a href=#header_nav>Page Up</a></p>
+         <ul>
+          <li><a href="../html/">HTML</a></li>
+          <li><a href="../css/">CSS</a></li>
+          <li><a href="../images/">Images</a></li>
+          <li><a href="../docs/">Documents</a></li>
+         </ul>
+     </nav>
+  <p><a href="mailto:justin.pittman@redhat.com">Email me</a>.</p>
+  <a href="http://www.w3.org/html/logo/">
+   <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-performance-semantics.png" width="197" height="64" alt="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Performance &amp; Integration, and Semantics">
+  </a>
+  <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" title="W3C Validated CSS!"/>
+  </a>
+</footer> 
+</main>
+</body>
+</html>
