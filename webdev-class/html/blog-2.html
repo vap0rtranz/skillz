@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<!--
-  if broken, insert line 1 as: <?xml version="1.0" encoding="UTF-8"?>
--->
 <html lang="en">
+<!--
+  HTML5 doesn't need XML so the typical <!DOCTYPE html> isn't needed
+  if broken, insert line 1 as the typical: xml version="1.0" 
+-->
 <!-- HEAD -->
 <head>
   <!-- http-equiv pragma is really not good but often expected by validators.  
   See http://www.w3.org/TR/html5/document-metadata.html#attr-meta-http-equiv
-  all that should be needed for this line is: <meta charset="utf-8">
-  -->
+  all that should be needed for this line is: 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  -->
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Justin Pittman - Red Hat People page">
   <meta name="keywords" content="HTML,HTML5,CSS,CSS3">
@@ -36,9 +37,10 @@
 </header>
 <!-- SECTION -->
 <section id="blog_section">
+  <h2>Blog Entries</h2>
   <article>
 	<details>
-	  <summary>Blog Entry 1</summary>
+		<summary><h3>Blog Entry 1</h3></summary>
 		<p>published by Justin <time datetime="2019-03-07">March 7, 2019</time></p>
 		<p><code>some code here</code></p>
 		<p>Download <a href="../images/j.png" download="my-logo.png">my logo</a></p>
@@ -47,7 +49,7 @@
 </section>
 <!--ASIDE-->
 <aside>
-   <h1>Fun Stuff</h1>
+   <h2>Fun Stuff</h2>
      <audio controls><source src="https://archive.org/download/ChildsPlay2-Trial/ChildsPlay-2-stereo-gainfix.ogg" type=audio/ogg></audio>
 	 <audio controls autoplay><source src="https://ia800503.us.archive.org/35/items/ModemSound/ModemSound1.ogg" type=audio/ogg></audio>
 </aside>
@@ -67,5 +69,6 @@
     <img src="https://jigsaw.w3.org/css-validator/images/vcss" width="88" height="31" alt="Valid CSS!" title="W3C Validated CSS!"/>
   </a>
 </footer> 
+</main>
 </body>
 </html>
