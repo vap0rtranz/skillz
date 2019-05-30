@@ -8,8 +8,8 @@ caption always
 defshell bash
 backtick 1 5 5 true
 screen -t shell 0 bash
-screen -t root 0 sudo -i
-screen -t vim 1 vim
-screen -t htop 2 htop
-screen -t logs 3 journalctl -af
+screen -t root 1 sudo -i
+screen -t vim 2 vim
+screen -t htop 3 htop
+screen -t logs 4 journalctl -af
 select 0
