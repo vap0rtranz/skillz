@@ -1,12 +1,19 @@
+# skip intro message
 startup_message off
+# don't visually ding bell
 vbell off
 term screen-256color
 autodetach on
 hardstatus string "screen (%n: %t)"
+# set the bottom caption for navigation
 caption string "%{= kw}%Y-%m-%d;%c %{= kw}%-Lw%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+Lw%1`"
 caption always
+# scrollback lines
+defscrollback 4000
+# default shell is Bash
 defshell bash
 backtick 1 5 5 true
+# create initial windows on startup of terminal emulator
 screen -t shell 0 bash
 screen -t root 1 sudo -i
 screen -t vim 2 vim
