@@ -1,0 +1,10 @@
+# # vim:ft=ansible:
+---
+- name: play 1
+  hosts:
+  tasks:
+    - name: task 1
+      module: yum
+        arg1:
+
+

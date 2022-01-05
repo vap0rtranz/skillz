@@ -1,0 +1,23 @@
+---
+- apple
+- pearl
+- book
+###
+
+  # dash prefix means subsequent children inherit same indentation
+- name: play_1
+  # required: list of hosts
+  hosts: dev,ops
+  tasks:
+    - name: task_1
+      yum: 
+        name:
+        state:
+    - name: task_2
+      user:
+        name: testuser
+        state: present
+        uid: 9900
+        groups: root, abc
+        append: yes
+

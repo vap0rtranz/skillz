@@ -1,0 +1,7 @@
+---
+- name: this is a play
+  hosts:
+  tasks:
+    - name: 1st task
+      yum:
+

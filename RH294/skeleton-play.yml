@@ -1,0 +1,17 @@
+---
+- name: play 1
+
+- name: play 2
+
+- name: play 3
+  hosts:
+  tasks:
+    - name: task 1
+      module:
+        arg1:
+        arg2:
+        arg3:
+    - name: task 2
+    - name: task 3
+      module:
+
