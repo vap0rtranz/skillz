@@ -1,0 +1,31 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2020-03-09T20:18:36Z"
+    labels:
+      app: sample-php
+    name: sample-php
+    namespace: 65de-exploring-openshift
+    resourceVersion: "321251783"
+    selfLink: /api/v1/namespaces/65de-exploring-openshift/services/sample-php
+    uid: 281bae14-6243-11ea-9eea-02fdb1202f5a
+  spec:
+    clusterIP: 172.30.211.130
+    ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: sample-php
+      deploymentconfig: sample-php
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

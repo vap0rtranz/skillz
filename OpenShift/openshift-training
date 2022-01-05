@@ -1,0 +1,122 @@
+OpenShift Training
+Foundation
+
+Labels
+	metadata.label.key=value
+Selector
+	label assigned to all Pods managed by ReplicationController
+CrashLoopBack
+	frequently failing Pod liveness/readiness are suspended from replication/schedular
+Scheduler
+	balance load across works based on resources (CPU, volumes, memory)
+	also spreads replicas for HA
+ReplicationController
+	N number of Pods are behind Service
+	selector = id's Pods for replica
+	to maintain desired state
+		does NOT do traffic load distribution
+Operator
+	Pod that runs k8 API scripts / code
+	reconciliation loop - verifies config & deploy
+Networking
+	OVS
+		integrated w/ Router (HAProxy), DNS (CoreDNS? SkyDNS?)
+	Pods use clusterIP and Host network stack to communicate with other Pods via Service
+		PodA -> HostA -> OVS -> HostB -> ServiceB -> PodB
+Route
+	Service selector
+	Router != route
+	Ex: client requests -> myApp.apps.openshift.opentlc.com:80 -> HAProxy -> OVS (openshift-sdn) ->  172.30.0.99:9999 -> service response -> 10.1.2.3:8080 (Pod reply @ clusterIP:Port)
+Services
+	load balance Pod requests
+	Pods have access to internal DNS for Service lookups
+		internal DNS: my-service.my-project.svc.cluster.local
+Projects
+	annotated K8s namespace
+	scope of quotas, limits, 
+		Objects - Pods, replicationcontrollers
+		Policies - RBAC, create, etc.
+		Constraints
+		Service Accounts
+User
+	User Object
+	Types:
+	Cluster-admin
+	per-node user
+	Service Account
+	anonymous is allowed?!
+Quotas
+	ResourceQuota
+		per Project
+	ClusterResourceQuota
+		per Cluster
+	LimitRanges
+		Pod resource limits
+		request & limit parameters -> fed into Scheduler
+		ServiceTiers
+			Best Effort, Burstable, Guaranteed
+	Usage calculation
+		configurable, default 5s
+	Ex:
+		# of objects
+		resources
+		label - ex: "test" Project
+Logging
+	Per-project
+		standard users only see their Project logs
+	Fluentd
+		pulls logs from Pod
+		injects Pod logs into ESstore
+Monitoring
+	CMO - Cluster Monitoring Operator
+	HPA - Horizaontal Pod Autoscalers
+		use Metrics to scale out based on traffic/load
+		autoscale triggers:
+			cluster-level metrics
+			app metrics
+		must whitelist metrics to scale
+	node-exporter
+		agent deployed by CMO to collect Node metrics
+	kube-state-metrics
+		converts k8s metrics to Prometheus storage metrics
+		
+Template
+	BC, DC
+Operator
+	_extends_ k8s API, then API knows the new "objects" called CRs
+		ex:
+		apiVersion: apiextensions.k8s.io/v1beta1
+		kind: CustomResourceDefinition
+	verbs them operator on new CRs as typical objects
+		ex:
+		oc get <CR>
+
+Container Mgmt & Images
+
+OS interfaces -> container runtime -> container engine -> container orchestrator
+=
+kernel -> runc -> podman -> kubelet
+kernel --> iptables
+podman --> API, image repo, config
+
+Container Image
+	 = tarball + metadata
+	layer 1, N+1
+
+S2I
+	BuildConfig type
+	base images
+		UBI non-restricted
+			3 versions
+				ubi8
+				ubi8-init
+				ubi8-minimal
+				
+		EULA restrictions otherwise
+
+Resources & Tools
+
+Installation
+
+Configuration
+

@@ -1,0 +1,34 @@
+
+
+
+
+
+
+BACKUP
+
+Login:
+https://console-openshift-console.apps.cluster-6fe8.6fe8.sandbox1183.opentlc.com
+opentlc-mgr
+oc login -u opentlc-mgr https://api.cluster-6fe8.6fe8.sandbox1183.opentlc.com:6443
+r3dh4t1!
+user1/openshift
+
+
+
+Build an App
+oc new-app nodeshift/centos7-s2i-nodejs:12.x~https://github.com/vrutkovs/DuckHunt-JS
+
+
+OpenShift Demo
+
+BJs
+Record
+
+UI
+Login
+https://console-openshift-console.apps.fd97w.dynamic.opentlc.com
+kubeadmin
+
+CLI
+oc login -u kubeadmin https://api.fd97w.dynamic.opentlc.com:6443
+XyY5y-ApwrL-pv8gc-Bat7P

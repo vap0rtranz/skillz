@@ -1,0 +1,54 @@
+### hubcluster
+
+oc login -u -p  --insecure-skip-tls-verify https://api.cluster-ptd-2-07bd.ptd-2-07bd.example.opentlc.com:6443
+
+Openshift Master Console: http://console-openshift-console.apps.cluster-ptd-2-07bd.ptd-2-07bd.example.opentlc.com
+Openshift API for command line 'oc' client: https://api.cluster-ptd-2-07bd.ptd-2-07bd.example.opentlc.com:6443
+Download oc client from https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.3.33/openshift-client-linux-4.3.33.tar.gz
+This cluster has authentication enabled. You can use 
+
+
+### cluster1
+
+oc login -u alice -p openshift --insecure-skip-tls-verify https://api.cluster-6e80.6e80.sandbox507.opentlc.com:6443
+
+Openshift Master Console: https://console-openshift-console.apps.cluster-6e80.6e80.sandbox507.opentlc.com
+Openshift API for command line 'oc' client: https://api.cluster-6e80.6e80.sandbox507.opentlc.com:6443
+Download oc client from https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.4.17/openshift-client-linux-4.4.17.tar.gz
+You can access your bastion via SSH:
+ssh jupittma-redhat.com@bastion.6e80.sandbox507.opentlc.com
+Make sure you use the username 
+
+### cluster2
+
+oc login -u kubeadmin -p kkx3Y-Is8NF-NRpeC-kVLha --insecure-skip-tls-verify https://api.cluster2.sandbox676.opentlc.com:6443
+
+Top level domain: .sandbox676.opentlc.com
+WARNING: with great power comes great responsibility. We monitor usage.
+Your AWS programmatic access:
+aws_access_key_id = AKIASOSLT5RCQ3OYFEG4
+aws_secret_access_key = mcXxHKLC4NQi4pXfVq9PhYSWSnS606E0Z34VX3Zc
+SSH Access: ssh jupittma-redhat.com@bastion.cd7c.sandbox676.opentlc.com
+
+
+### cluster3
+
+oc login -u admin -p V0g3Y98uCmSObsyu --insecure-skip-tls-verify https://api.ocp4-ptd-2-7f4f-ipi.azure.opentlc.com:6443
+
+Remote User: azure
+RHEL Bastion Host: bastion-ptd-2-7f4f.westeurope.cloudapp.azure.com
+Windows Host(s): vmwin0-ptd-2-7f4f.westeurope.cloudapp.azure.com,
+Windows Password: VK/x/3+189Ep1avIB7FHfjoElX/M05nFLg==
+Openshift Master Console: https://console-openshift-console.apps.ocp4-ptd-2-7f4f-ipi.azure.opentlc.com
+Openshift API for command line 'oc' client: https://api.ocp4-ptd-2-7f4f-ipi.azure.opentlc.com:6443
+Download oc client from https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.4.3/openshift-client-linux-4.4.3.tar.gz
+HTPasswd Authentication is enabled on this cluster.
+You can access your bastion via SSH:
+ssh jupittma-redhat.com@bastion.ptd-2-7f4f.azure.opentlc.com
+
+
+### Extra Cluster
+
+Openshift Master Console: http://console-openshift-console.apps.cluster-ptd-2-a58f.ptd-2-a58f.example.opentlc.com
+Openshift API for command line 'oc' client: https://api.cluster-ptd-2-a58f.ptd-2-a58f.example.opentlc.com:6443
+Download oc client from https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.4.8/openshift-client-linux-4.4.8.tar.gz

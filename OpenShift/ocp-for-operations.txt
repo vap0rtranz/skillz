@@ -1,0 +1,109 @@
+
+
+# system accounts
+system:admin = cert login, no passwd; no web console
+kube:admin = kubeadmin => passwd login, to web console
+cluster-admin = user bound to cluster-admin role??
+
+# installer accounts & setup
+# AWS
+ec2-user@
+~/.kube/config
+
+# get cluster version
+oc get clusterversion
+oc describe clusterversion
+
+# recommended accounts
+
+
+# get roles (APIs, Rules) for specific account by name
+oc get clusterrole cluster-admin -o yaml
+
+# get app endpoints
+oc get endpoints
+
+# set a Liveness Probe
+oc set probe dc/mapit --liveness --get-url=http://:8080/health --initial-delay-seconds=30
+
+# set a Readiness Probe
+oc set probe dc/mapit --readiness --get-url=http://:8080/health --initial-delay-seconds=30
+
+# add PVC to Pod
+oc set volume dc/mapit --add --name=mapit-storage -t pvc --claim-mode=ReadWriteOnce --claim-size=1Gi --claim-name=mapit-storage --mount-path=/app-storage
+
+# get PVCs in Namespace
+oc get persistentvolumeclaim -n app-management
+
+# how old is a Machine/Set?
+oc get machineset -n openshift-machine-api
+
+# get machine sizing
+oc get machine -n openshift-machine-api
+
+#  up machineset
+oc scale machineset cluster-virtual-995b-95hdk-worker-us-east-2c -n openshift-machine-api --replicas=2
+
+# get labels of Node
+oc get nodes ip-10-0-133-11.us-east-2.compute.internal --show-labels
+
+# get nodes of (official) label worker and NOT of label master
+oc get nodes -l node-role.kubernetes.io/worker -l '!node-role.kubernetes.io/master'
+
+# get nodes of (custom) label "openshift-storage"
+oc get nodes -l cluster.ocs.openshift.io/openshift-storage=
+
+# label a namespace/project
+oc label namespace openshift-storage "openshift.io/cluster-monitoring=true"
+
+# get pods based on label
+oc --namespace mongo get pods -l "name=mongo"
+
+# get Ingresses from cluster
+oc get ingresses.config.openshift.io cluster -o yaml
+
+# watch for CSVs on new deploy
+watch "oc -n openshift-storage get csv"
+
+# get storageclasses
+oc get sc
+
+# match PVs to RBDs (Ceph)
+oc get pv -o 'custom-columns=NAME:.spec.claimRef.name,PVNAME:.metadata.name,STORAGECLASS:.spec.storageClassName,VOLUMEHAND
+LE:.spec.csi.volumeHandle'
+
+# verify running Pods & Volumes of Prometheus
+oc get pods,pvc -n openshift-monitoring
+
+# get Configs for Prometheus
+oc -n openshift-monitoring get configmap cluster-monitoring-config
+
+# verify service endpoints to Pods
+oc get endpoints parksmap
+
+# add view Role to Default ServiceAccount
+# The -z syntax is a special one that saves us from having to type out ServiceAccount string path (system:serviceaccount:opentlc-mgr:default)
+oc policy add-role-to-
+ view -z default
+
+## verify user access
+oc auth can-i create pods
+
+## get ServiceAccount token
+oc sa get-token build-sa
+
+## verify CSVs for Operators (ClusterVersionService)
+oc get csv
+
+## verify controllers of pod apps
+oc get replicationcontroller,replicaset,statefulset,daemonset
+
+remote mgmt:
+
+ssh root@* 
+keys uploaded
+
+credentials:
+
+
+

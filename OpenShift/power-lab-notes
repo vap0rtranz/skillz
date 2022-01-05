@@ -1,0 +1,111 @@
+### POWER Access ###
+
+VPN Download
+
+
+VPN Client
+Server: 
+Your VPN Group: 
+Your userid is:
+Your password is:
+
+Manager (PowerVC & HMC)
+https://powervc2.pbm.ihost.com/powervc/index.html
+https://vhmcb0p130.pbm.ihost.com/dashboard/#resources/systems
+Username: 
+Password: 
+
+Hosts
+PowerVC: 
+HMC: 
+
+### Examples:
+
+ssh 
+Password: 
+
+export MANAGED_SYSTEM=Server-8247-22L-SN212169A
+
+~> lshwres -m $MANAGED_SYSTEM -r virtualio --rsubtype eth --level lpar -F lpar_name,mac_addr
+
+Network
+single VLAN v362
+IP Addresses: 129.40.108.1-12/255.255.255.240
+
+Templates (not Images)
+
+Virt Net
+362-ETHERNET0
+
+HelperNode
+ssh -o IdentitiesOnly=yes  root@129.40.108.7
+
+
+
+###
+
+Extra Tidbits
+" need to target a specific Availability Zone, and I created one called "b0p130" 
+
+### Installation Methods:
+
+Terraform Templates: so-called "Automated" method 1
+https://github.com/ocp-power-automation/ocp4-upi-powervm/blob/master/docs/quickstart.md
+
+Terraform Templates: Intro
+https://github.com/ocp-power-automation/ocp4-upi-powervm
+
+
+Manual CLI PowerVM + HelperNode
+https://github.com/RedHatOfficial/ocp4-helpernode/blob/devel/docs/quickstart-powervm.md
+
+The RedBook RefArch
+http://www.redbooks.ibm.com/redpieces/pdfs/redp5599.pdf
+
+
+OpenShift Install UPI (Manoj)
+https://github.com/openshift/installer/blob/master/docs/user/power/install_upi.md
+
+CoreOS Imaging:
+https://github.com/ocp-power-automation/ocp4-upi-powervm/blob/master/docs/coreos-image-creation.md
+
+
+### MACs
+ocp4-bootstrap,2A970BA11E02
+ocp4-master0,2A970C03B402
+ocp4-master1,2A9709DBCE02
+ocp4-master2,2A970A121D02
+
+
+### Ansible Playbook
+TASK [Create apache directories for installing] **************************************************************************************************************
+changed: [localhost] => (item=/var/www/html/install)
+changed: [localhost] => (item=/var/www/html/ignition)
+
+TASK [Delete OCP4 files, if requested, to download again] ****************************************************************************************************
+skipping: [localhost] => (item=/usr/local/src/openshift-client-linux.tar.gz) 
+skipping: [localhost] => (item=/usr/local/src/openshift-install-linux.tar.gz) 
+skipping: [localhost] => (item=/var/www/html/install/bios.raw.gz) 
+skipping: [localhost] => (item=/var/lib/tftpboot/rhcos/initramfs.img) 
+skipping: [localhost] => (item=/var/lib/tftpboot/rhcos/kernel) 
+
+
+
+## bootstrap
+OF stdout device is: /vdevice/vty@30000000
+Preparing to boot Linux version 4.18.0-147.20.1.el8_1.ppc64le (mockbuild@ppc-061.build.eng.bos.redhat.com) (gcc version 8.3.1 20190507 (Red Hat 8.3.1-4) (GCC)) #1 SMP Wed Jun 10 19:22:23 UTC 2020
+Detected machine type: 0000000000000101
+command line: BOOT_IMAGE=(ieee1275//vdevice/vfc-client@30000002/disk@500507680c3130ba\\,0000000000000000,gpt2)/ostree/rhcos-b78dd3c01b0775f2e30f4fe4ff44f1ad039fd6ae57a9ea804d7bbd66d9aedbec/vmlinuz-4.18.0-147.20.1.el8_1.ppc64le rhcos.root=crypt_rootfs console=tty0 console=hvc0,115200n8 rd.luks.options=discard ignition.firstboot rd.neednet=1 ip=dhcp,dhcp6 ostree=/ostree/boot.1/rhcos/b78dd3c01b0775f2e30f4fe4ff44f1ad039fd6ae57a9ea804d7bbd66d9aedbec/0 ignition.platform.id=openstack
+
+working = 
+
+Loading kernel
+Loading initrd
+OF stdout device is: /vdevice/vty@30000000
+Preparing to boot Linux version 4.18.0-147.8.1.el8_1.ppc64le (mockbuild@ppc-061.build.eng.bos.redhat.com) (gcc version 8.3.1 20190507 (Red Hat 8.3.1-4) (GCC)) #1 SMP Wed Feb 26 04:11:20 UTC 2020
+Detected machine type: 0000000000000101
+command line: BOOT_IMAGE=/rhcos/kernel ip=dhcp console=tty0 console=ttyS0 console=hvc0,115200n8 rd.neednet=1 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://129.40.108.4:8080/install/bios.raw.gz coreos.inst.ignition_url=http://129.40.108.4:8080/ignition/bootstrap.ign
+Max number of cores passed to firmware: 256 (NR_CPUS = 2048)
+Calling ibm,client-architecture-support... done
+memory layout at init:
+

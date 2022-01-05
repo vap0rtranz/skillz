@@ -1,0 +1,78 @@
+
+# run a container in foreground by attaching an interactive terminal, execute the command, and remove the container on termination
+podman run --interactive --tty --rm registry.access.redhat.com/rhel7-rhel-minimal /bin/bash
+
+# run a container in background by detaching
+podman run --detach --tty fedora:30
+
+# list all running containers
+podman ps
+
+# list all containers
+podman ps -a
+
+
+# get stats of running container
+podman stats <CONTAINER_NAME>
+
+# get top processes for container
+podman top <CONTAINER_ID>
+
+# Troubleshooting containers
+# run container with specific log path and environment variable
+podman run -dt --log-opt path=/var/log/container/postgres.json -e POSTGRES_PASSWORD=password postgres /bin/bash
+
+# attach to a container running in background
+podman exec -it <CONTAINER_ID> /bin/bash
+
+# clean-up container runtime by stopping & removing 
+podman stop <CONTAINER_ID>
+podman rm <CONTAINER_ID>
+
+# delete container image
+podman rmi <IMAGE_ID>
+
+# list all images
+podman image ls
+
+# registry (DockerHub) for official image by name
+podman search --filter is-official=true postgres
+
+# create persistent volume
+podman volume create VOLUME_NAME
+
+# attach persistent volume to specific directory in foreground, interactive container
+podman run -it --volume test-vol:/usr/local/bin rhel7-rhel-minimal
+
+# run an image on specificed ports and inject ENVironment variables to runtime
+podman run -p 8080:8080 -d --name=lab-guide -e CONTENT_URL_PREFIX="[VALUE]" quay.io/osevg/workshopper
+
+# inspect a container image from reg
+skopeo inspect docker://registry.access.redhat.com/ubi8/ubi-minimal
+
+# copy an image from registry to local directory for manipulating files
+sudo skopeo copy docker://docker.io/library/postgres dir:/home/jupittma/Dev/containers/postgres
+
+# copy local files of container image up to local registry
+skopeo copy dir:/home/jupittma/Dev/containers/nginx containers-storage:nginx
+
+# Upload container image workflow
+podman login quay.io
+podman run -it <IMAGE>
+podman commit CONTAINER IMAGE
+podman tag docker.io/library/nginx quay.io/jupittma/my-nginx:1
+podman push quay.io/jupittma/my-nginx:1
+
+# build image from Dockerfile with tag "orig" and skip security
+podman build -f ./Workshop/m2m-dtrace-old/monolith-to-microservice-openshift/monolith/Dockerfile -t orig --loglevel 3 --tls-verify=false
+
+# build image from Dockerfile, aka "build using dockerfile = bud"
+buildah bud -t gnu-hello .
+
+# mount an image to start building within it
+newcontainer=$(buildah from registry.redhat.io/ubi7/ubi-minimal)
+newmount=$(buildah mount $newcontainer)
+cd $newmount
+pwd
+~/.local/share/containers/storage/overlay/e346d0a93ad9a0d9fa31cf7109b0b0edb6b79d65e4e45a79fe3c3e3060adbc3d/merged
+

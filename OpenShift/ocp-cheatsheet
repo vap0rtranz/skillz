@@ -1,0 +1,154 @@
+### OpenShift CheatSheet
+
+## CLI shortname cheats
+oc api-resources
+NAME                                  SHORTNAMES 
+buildconfig	bc
+
+## Logging in, and getting started
+# which OCP server am I logged into?
+oc whoami --show-server
+
+# trace K8/OCP API calls from CLI
+oc whoami --loglevel=8
+
+
+## Managing images for apps
+
+# import container image from external registry
+oc import-image <repo_dir>/<IMAGE_NAME>:<TAG> --from=<EXTERNAL_REPO_URL> --confirm
+
+# example of importing CentOS based Python v3.5
+oc import-image python:3.5 --from=centos/python-35-centos7 --confirm
+
+# get list of imagestreams, which are locating in the "openshift" namespace by default
+oc get is --namespace=openshift
+
+# version history of container image
+sudo docker history nexus-iq-server
+
+# token login to quay.io
+sudo docker login -u="coreos+rhcp" -p="L6ZXXVHD9XLQ7PR7HBNRW2FAIZQNJYHREISFGCUBIB45C43WCWYU3DZ0FHJH2AY5" quay.io
+
+# token login to internal OCP registry
+## the internal registry defaults to port 5000 on local service; a route/Ingress is not required
+podman login -u default -p `oc whoami -t` image-registry.openshift-image-registry.svc:5000
+
+# verify images in local registry
+# podman images
+
+# push to local OCP registry
+## this generators an ImageStream
+## the internal registry defaults to port 5000 on local service; a route/Ingress is not required
+podman push image-registry.openshift-image-registry.svc:5000/lab-build-an-operator-user1/podset-operator:0.1.0
+
+# create a pull secret that allows container pulls from an external registry (encase customer disabled this)
+oc create secret docker-registry rhcc --docker-server=registry.redhat.io --docker-username=$oreg_user --docker-password=$oreg_pass --docker-email='jupittma@redhat.com'
+
+## OpenShift Templates
+# generate template of all project objects 
+# OCP3 ONLY
+oc export all --as-template=<template_name>
+
+# get all templates from cluster server
+oc get templates -n openshift
+
+# process an OCP template that has parameters
+oc process -f <template-name>.yaml | oc apply -f -
+
+
+## Deployments & Builds for apps
+
+
+# create new build from source that generates a binary
+oc new-build openjdk18-openshift --name=myjavaapp --strategy=source --binary=true
+
+# start build the injests binary
+oc start-build myjavaapp --from-file=/home/jupittma/.m2/repository/io/thorntail/undertow/2.2.0.Final/undertow-2.2.0.Final.jar -F
+
+# create new app
+oc new-app myjavaapp
+
+# get builds
+ oc get builds
+
+# get logs that are only from specific Container of a Pod, and follow/watch these logs
+oc logs myjavaapp-1-d9z2g -c myjavaapp -f
+
+# manually scaling up Pods
+oc scale dc/<DC> --replicas=2
+
+# (re)label a DC and Service with key/value pair Labels
+oc label dc/mongodb-nationalparks svc/mongodb-nationalparks app=workshop component=nationalparks role=database --overwrite
+
+
+oc new-build --name nexj-build --strategy=docker --binary
+oc start-build nexj-build --from-dir .
+oc new-app --image-stream nexj-build --name nexj-app
+
+
+## S2i
+oc new-app --strategy=source --code=https://github.com/openshift/ruby-hello-world --name=my-new-app
+
+# rollback a build/deploy
+# NOTE Automatic deployment of new images is disabled as part of the rollback to prevent unwanted deployments soon after the rollback is complete.
+oc rollback nationalparks
+
+# re-enable triggers after a rollback
+oc set triggers dc/nationalparks --auto
+
+
+
+## Troubleshooting Containerized Apps
+
+# remote shell into a Pod
+oc exec <POD_NAME> -- <COMMAND>
+# Ex: oc exec os-sample-python-1-5fqqd -- curl "http://www.gnu.org/index.html"
+
+# execute a command in a Pod
+oc exec <POD_NAME> -- ps -ef
+
+# immediatedly delete a Pod
+oc delete pod <POD_NAME> --grace-period=0
+
+# run a simple Pod (smoketest, etc.)
+oc run nginx --image=nginx
+
+# run RHEL tool container w/ interactive TTY
+oc run -it rhel-tools --image=rhel7/rhel-tools --generator=run-pod/v1
+# check Pod's IPAddr
+>ip a
+
+
+
+
+## Typical Security Stuff
+
+# get the Security Context Constraints
+oc get scc
+
+# modify the Security Context
+# Ex: for granting permission for Pods to run as anyUID
+oc adm policy add-scc-to-anyuid system:serviceaccount:my-ns:postgres
+
+# create a pull secret that allows container pulls from an external registry (encase customer disabled this)
+oc create secret docker-registry rhcc --docker-server=registry.redhat.io --docker-username=$oreg_user --docker-password=$oreg_pass --docker-email='jupittma@redhat.com'
+
+
+
+## Day2 Ops
+# top Node utilization
+oc adm top node
+
+# list pressure of Nodes
+oc adm pressure
+
+# get quotas
+oc get quota 
+oc describe quota core-object-counts
+
+
+## Installing clusters
+
+## Troubleshooting installations
+

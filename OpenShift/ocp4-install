@@ -1,0 +1,215 @@
+OCP4 on AWS
+
+# prereqs
+### DNS ###
+192.168.30.170 = api.okd4.lab.yarnbomb.xyz
+192.168.30.170 = api-int.okd4.lab.yarnbomb.xyz
+192.168.30.171 = *.apps.okd4.lab.yarnbomb.xyz
+192.168.30.172 = DNS (CoreDNS)
+###
+
+# Install required software:
+# Download these from cloud.redhat.com
+
+wget https://github.com/openshift/okd/releases/download/4.4.0-0.okd-2020-04-21-163702-beta4/openshift-install-linux-4.4.0-0.okd-2020-04-21-163702-beta4.tar.gz
+tar -xf openshift-install-linux-4.4.0-0.okd-2020-04-21-163702-beta4.tar.gz
+
+### WARNING!  Version matching
+# for Windows, use latest (v4.7)
+# always match client CLI to installer CLI!
+
+$tar -vxzf ~/Downloads/openshift-client-linux.tar.gz 
+$tar -vxzf ~/Downloads/openshift-install-linux.tar.gz
+$ oc version
+
+## setup AWS
+
+$ aws configure
+# enter your ID, Key, and region for the cluster
+
+## Disconnected install
+#(sometimes called "disconnected install/upgrade" or "restricted network cluster"
+Mirror the OCP images from quay.io 
+
+# Run Podman as local image registry:
+sudo podman run --name mirror-registry -p 80:5000 -v /opt/registry/data:/var/lib/registry:z      -v /opt/registry/auth:/auth:z      -e "REGISTRY_AUTH=htpasswd"      -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm"      -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd      -v /opt/registry/certs:/certs:z      -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt      -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key      -d docker.io/library/registry:2
+
+curl -u justin:lilPenguin4u -k https://localhost:80/v2/_catalog
+
+# Setup environment of 'oc adm' for mirroring
+
+export OCP_RELEASE='4.4.0-0.okd-2020-04-21-163702-beta4'
+export LOCAL_REGISTRY='localhost:80'
+export LOCAL_REPOSITORY='okd4'
+export PRODUCT_REPO='openshift'
+export LOCAL_SECRET_JSON='/opt/registry/auth/pull-secret.json'
+export RELEASE_NAME="okd"
+
+ sudo ./oc adm -a ${LOCAL_SECRET_JSON} release mirror --from=quay.io/${PRODUCT_REPO}/${RELEASE_NAME}:${OCP_RELEASE} --to=${LOCAL_REGISTRY}/${LOCAL_REPOSITORY} --to-release-image=${LOCAL_REGISTRY}/${LOCAL_REPOSITORY}:${OCP_RELEASE}
+
+###
+Mirroring completed in 2h14m17.7s (683.7kB/s)
+
+Success
+Update image:  bootstrap1:80/okd4:4.4.0-0.okd-2020-04-21-163702-beta4
+Mirror prefix: bootstrap1:80/okd4
+
+To use the new mirrored repository to install, add the following section to the install-config.yaml:
+
+imageContentSources:
+- mirrors:
+  - bootstrap1:80/okd4
+  source: quay.io/openshift/okd
+- mirrors:
+  - bootstrap1:80/okd4
+  source: quay.io/openshift/okd-content
+
+
+To use the new mirrored repository for upgrades, use the following to create an ImageContentSourcePolicy:
+
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  name: example
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - bootstrap1:80/okd4
+    source: quay.io/openshift/okd
+  - mirrors:
+    - bootstrap1:80/okd4
+    source: quay.io/openshift/okd-content
+###
+
+# install OCP tools _from mirror_
+oc adm -a ${LOCAL_SECRET_JSON} release extract --command=openshift-install "${LOCAL_REGISTRY}/${LOCAL_REPOSITORY}:${OCP_RELEASE}"
+
+## import from tarball mirror
+oc image mirror -a ~/.docker/config.json --dir=${dirBase}/mirror file://openshift/release:4.3.8* 10.0.8.xx:5000/ocp-4.3.8
+
+
+
+
+podman run --name ocp4-mirror -p 80:5000 -v /opt/registry/data:/var/lib/registry:z -v /opt/registry/auth:/auth:z -e "REGISTRY_AUTH=htpasswd" -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm" -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd -v /opt/registry/certs:/certs:z -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key -e REGISTRY_COMPATIBILITY_SCHEMA1_ENABLED=true -d docker.io/library/registry:2
+
+### OCP44 mirror
+
+info: Mirroring completed in 2h33m34.17s (641.2kB/s)
+
+Success
+Update image:  bootstrap1.lab:80/ocp4-repo-2:4.4.5-x86_64
+Mirror prefix: bootstrap1.lab:80/ocp4-repo-2
+
+To use the new mirrored repository to install, add the following section to the install-config.yaml:
+
+imageContentSources:
+- mirrors:
+  - bootstrap1.lab:80/ocp4-repo-2
+  source: quay.io/openshift-release-dev/ocp-release
+- mirrors:
+  - bootstrap1.lab:80/ocp4-repo-2
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+
+
+To use the new mirrored repository for upgrades, use the following to create an ImageContentSourcePolicy:
+
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  name: example
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - bootstrap1.lab:80/ocp4-repo-2
+    source: quay.io/openshift-release-dev/ocp-release
+  - mirrors:
+    - bootstrap1.lab:80/ocp4-repo-2
+    source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+
+
+### pull-secret
+
+{ "bootstrap1.lab:80": { "auth": "anVzdGluOmxpbFBlbmd1aW40dQ==", "email": "me@me" },
+
+### Main install of OCP
+
+> - Created install-config.yaml (install-config.yaml.05172021)
+
+$ openshift-install create install-config --dir=<cluster_directory>
+
+# change to OVN network
+
+sed -i 's/OpenShiftSDN/OVNKubernetes/g' <cluster_directory>/install-config.yaml
+grep networkType test1/install-config.yaml
+
+> - Created manifest folder
+
+$ openshift-install create manifests --dir=<cluster_directory>
+$ tree 
+
+> - Created cluster-03* file (cluster-network-03-config.yml.bak)
+
+$ touch test1/manifests/cluster-network-03-config.yml
+$ vim !$
+
+# see the Github docs for this YAML snippet: https://github.com/openshift/windows-machine-config-operator/blob/master/docs/setup-hybrid-OVNKubernetes-cluster.md
+
+$ openshift-install create cluster --dir=<cluster_directory>
+
+# normal output
+INFO Credentials loaded from the "default" profile in file "/home/jupittma/.aws/credentials" 
+INFO Creating infrastructure resources...         
+INFO Waiting up to 20m0s for the Kubernetes API at https://api.cluster1.sandbox470.opentlc.com:6443... 
+INFO API v1.20.0+df9c838 up                       
+INFO Waiting up to 30m0s for bootstrapping to complete... 
+INFO Destroying the bootstrap resources...        
+INFO Waiting up to 40m0s for the cluster at https://api.cluster1.sandbox470.opentlc.com:6443 to initialize... 
+INFO Waiting up to 10m0s for the openshift-console route to be created... 
+INFO Install complete!                            
+INFO To access the cluster as the system:admin user when using 'oc', run 'export KUBECONFIG=/home/jupittma/Dev/openshift-aws-windows/test1/auth/kubeconfig' 
+INFO Access the OpenShift web-console here: https://console-openshift-console.apps.cluster1.sandbox470.opentlc.com 
+INFO Login to the console with user:
+
+> - Deployed cluster successfully on VMware
+
+$ openshift-install wait-for install-complete --log-level=debug
+
+### verify post-install
+
+$ oc get nodes
+
+### verify OVN
+
+$ oc get network.operator cluster -o yaml | grep OVN
+
+### install Windows Machine Operator
+### verify Windows Machine Pods
+$ watch oc get pods -n openshift-windows-machine-config-operator
+
+### verify Windows operator CSV (result should be "Succeeded")
+oc get csv -n openshift-windows-machine-config-operator
+
+
+## upload SSH key for Windows remote configuration by Operator
+$ oc create secret generic cloud-private-key --from-file=private-key.pem=/home/jupittma/.ssh/windows-ocp -n openshift-windows-machine-config-operator
+
+## create a Windows Machine Set (MS)
+### sample of AWS MS on Github: https://github.com/openshift/windows-machine-config-operator/blob/master/docs/machineset-aws.md
+## possible Windows 2019 Core w/ Containers: AMI ID: ami-0135e8b5fca2ef4cf 
+
+## verify current machine sets
+oc get machinesets -n openshift-machine-api
+
+## get infrastructure ID
+oc get -o jsonpath='{.status.infrastructureName}{"\n"}' infrastructure cluster
+
+sed -i 's/<infrastructureID>/cluster1-hvsqg/g' windows-aws-ms.yaml
+# change region & zone
+
+# create the machine set
+oc create -f windows-aws-ms.yaml
+
+# watch / log of windows machine config operator
+oc get pods -n openshift-windows-machine-config-operator
+oc logs <POD_NAME> -n openshift-windows-machine-config-operator -f
+
