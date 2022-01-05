@@ -1,0 +1,238 @@
+Ansible Training - RH294
+
+Classroom Creds:
+root/redhat
+student/student
+
+##Architecture
+	Controller
+		ansible installed
+		has playbooks
+		has ssh client / winrm client
+	Manager Host
+		defined in inventory
+		running sshd / winrm (server)
+		authorizes controller
+
+##Playbooks
+	lint / validate
+		yamllint
+		http://www.yamllint.com/
+	Skeleton
+		---
+		- name: play 1
+			#SPACE
+		- name: play 2
+			#SPACE
+		- name: play 3
+ 		  hosts:
+		  tasks:
+ 		   - name: task 1
+  		     module:
+  		      arg1:
+  		      arg2:
+   		      arg3:
+ 		   - name: task 2
+   		   - name: task 3
+			# SPACE
+		- name: play 4
+	Variables
+		Scoping
+			Header = global to playbook
+			Task = local to task
+				vars:
+			File = external file & global to playbook
+				vars_files:
+				  - [RELATIVE_PATH]
+			Inventory = overrides a hosts vars
+				[HOSTNAME] [VAR=VAL]
+			group_vars
+			host_vars
+		Order of Prescedence
+			https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable
+			higher to lowest: task -> play -> host -> group
+
+
+##Installation
+ansible --version
+
+Post-install check
+
+#verify version of python within Ansible call:
+$ansible -m setup localhost | grep ansible_python_version
+$ansible localhost -m debug
+
+# location of config
+/etc/ansible/
+
+#config check
+$ansible --version
+# see "config file = BLAH"
+
+If SELinux is enabled on the managed hosts, you also need to make sure the python3-libselinux
+package is installed before using modules that are related to any copy, file, or template functions.
+(Note that if the other Python components are installed, you can use Ansible modules such as yum
+or package to ensure that this package is also installed.)
+
+##Inventory files
+
+	skeleton
+		
+		#[group_name]
+		#host ip
+		#host fqdn
+
+		[dev] # GROUP
+		servera.lab.example.com #HOST
+	reserved words - all hosts, no groups
+		all
+
+# all = all hosts
+#switch to different inventory file & verify if group/host exists
+$ ansible -i [INVENTORY_FILE] [GROUP|HOST] --list
+
+verify group in inventory
+$ansible -i inventory dev --list
+
+#verify specific host inside group
+$ansible -i inventory servera -a id
+
+#verify all hosts listed (reservered word)
+$ansible all -i inventory --list
+
+#finding a missing host
+$ ansible all -i inventory --list | grep "MISSING_SERVER"
+
+#finding skipped hosts
+$ ansible ungrouped -i inventory --list
+	
+
+##Remoting In
+# verify basic connectivity
+$ansible host -m ping
+# in ansible.cfg
+remote_user = <USER>
+
+# verify id of user
+$ansible GROUP -m command -a id
+		
+#Modules
+# list all core modules
+ansible-doc -l
+	
+# sample module examples
+ansible-doc -s [MODULE]
+	
+# full documentation on modules
+ansible-doc [MODULE]
+
+# syntax of modules with argument on ah-hoc command
+ansible INVENTORY_GROUP -m MODULE -a "ARG1=xxx [..]"
+	
+#direct commands
+# WARN!  shell is NOT idempotent.  command is idempotent
+ansible GROUP -m shell -a "mkdir /tmp/test"
+ansible GROUP -m command -a "mkdir /tmp/test"
+ansible HOST -u USER -a "[COMMAND]"
+
+##Playbook Troubleshooting
+# check syntax of YAML & don't execute
+ansible-playbook --syntax-check [PLAYBOOK]
+	
+# check modules & etc via dry-run
+ansible-playbook -C|--check [PLAYBOOK]
+	
+# run a playbook
+ansible-playbook [PLAYBOOK]
+	
+# privilege, 1-time run (become)
+ansible-playbook -b [PLAYBOOK]
+	
+# step through playbook tasks
+ansible-playbook --step [PLAYBOOK]
+	
+# verbosity for troubleshooting
+ansible-playbook -vv [PLAYBOOK]
+	
+# run the command ad-hoc
+ansible [HOST] -m command -a [ARG]
+$ ansible servera -m command -a 'firewall-cmd --get-services'
+
+# enable logging
+log_path = [PATH] # in ansible.cfg
+
+# gather facts, use debug module NOT setup module
+
+###Privileges & Security
+	# become is scope specific
+		1. global @ ansible.cfg (local to ansible runtime)
+		2. playbook @ top of play
+		3. tasks @ specific task section
+#Vaults
+# encrypt a var file
+ansible-vault encrypt [PLAYBOOK]
+		
+# decrypt a var file
+ansible-vault decrypt [PLAYBOOK]
+		
+# prompt for password
+ansible-vault decrypt --aks-vault-pass [PLAYBOOK]
+ansible-vault decrypt --vault-id @prompt [PLAYBOOK]
+
+# decrypt with KEY file
+ansible-vault decrypt --vault-password-file=[KEY_FILE]
+		
+# edit an encrypted file
+$ export EDITOR=vim
+$ ansible-vault edit [PLAYBOOK]
+		
+# view encrypted file
+$ ansible-vault view [PLAYBOOK]
+		
+# rotate password to vault
+ansible-vault rekey
+		
+# identify specific files (ex: set id to "id-1" and prompt for password)
+ansible-vault encrypt --vault-id id-1@prompt [PLAYBOOK]
+		
+# view specific ID'd vault 
+ansible-vault view --vault-id id-1@prompt [PLAYBOOK]
+		
+# run encrypted playbook/encrypted vars
+ansible-playbook --vault-passowrd-file=[KEY_FILE] [PLAYBOOK]
+
+# disable output to screen / logfile
+no_log = true # in playbook; not the same as ansible.cfg log_path
+
+### Roles
+### role usage & official system, unofficial dependencies & writing from scratch are 50% of the exam
+# list roles
+ansible-galaxy list
+# list roles in specific directory (non-default installation location)
+ansible-galaxy list -p [DIR]
+# search galaxy
+ansible-galaxy search [ROLE]
+# install a system (official) role
+yum install rhel-system-roles
+# install a remote role
+ansible-galaxy install -r roles/requirements.yml -p roles
+### format of using roles
+### option a) meta/main.yml, option b) roles/requirements.yml
+### meta/main.yml is for official roles (Galayx); option b) is for custom/unofficial roles
+### requirements.yml form
+	- src: <remote server URI>
+	  scm: git|http|https
+	  version: "blah"
+	  name: [local_name]
+### main.yml form
+dependencies:
+	- name: [local_name]
+	  src: <remote server URI>
+	  scm: git
+	  version: "blah"
+# create custom role / initialize a skeleton
+cd roles/
+ansible-galaxy init [ROLE_NAME]
+
+Quizes
+2.d., 3.c., 4.d.
