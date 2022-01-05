@@ -1,8 +1,7 @@
 Ansible Training - RH294
 
 Classroom Creds:
-root/redhat
-student/student
+###
 
 ##Architecture
 	Controller
