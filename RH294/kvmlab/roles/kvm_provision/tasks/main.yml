@@ -1,0 +1,42 @@
+---
+# tasks file for kvm_provision
+- name: use package module to install or verify depend packages
+  become: yes
+  package:
+    name: # names of packages to pass as parms to module
+      - libguestfs-tools
+      - python3-libvirt
+    state: present
+- name: verify unique VM via KVM module
+  community.libvirt.virt:
+    command: list_vms
+  register: existing_vms
+  changed_when: no
+- name: copy base image to VM disk
+  copy:
+    src: "{{ base_image_url }}"
+    dest: "{{ libvirt_pool_dir }}/{{ vm_name }}.qcow2"
+    force: no
+    mode: 0660
+  register: copy_results
+- name: create VM if it doesn't exist
+  block:
+    - name: configure image
+      command: |
+        virt-customize -a {{ libvirt_pool_dir }}/{{ vm_name }}.qcow2 \
+        --hostname {{ vm_name }} --root-password password:{{ vm_root_pass }} \
+        --ssh-inject 'root:file:{{ ssh_key }}' --uninstall cloud-init --selinux-relabel
+      when: copy_results is changed
+    - name: define VM
+      community.libvirt.virt:
+        command: define
+        xml: "{{ lookup('template', 'vm-template.xml.j2') }}"
+  when: "vm_name not in existing_vms.list_vms"
+- name: start & check VM
+  community.libvirt.virt:
+    name: "{{ vm_name }}"
+    state: running
+  register: vm_start_results
+  until: "vm_start_results is success"
+  retries: 3
+  delay: 10
