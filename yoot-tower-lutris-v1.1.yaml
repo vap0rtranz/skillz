@@ -1,0 +1,46 @@
+name: Yoot Tower 2
+game_slug: yoot-tower
+version: yoot-v1.1
+slug: yoot-tower-v1.1
+runner: wine
+
+script:
+  files:
+  # SCENARIO A: User has the file (Default)
+  # This prompts the user to select the file from their computer.
+  - game_archive: N/A:Select the Yoot Tower ZIP file you downloaded
+
+  # SCENARIO B: Automated Download
+  # To use this, comment out the line above and uncomment the lines below.
+  # - game_archive:
+  #     url: https://d2.myabandonware.com/t/ffcc905f-86aa-4d3b-8c33-5b5c2ae8710b/Yoot-Tower_Win_EN.zip
+  #     filename: Yoot-Tower_Win_EN.zip
+
+  game:
+    # Note: If the ZIP extracts into a subfolder (e.g. "Yoot"), change this to:
+    # $GAMEDIR/Yoot/Yoot Tower.exe
+    exe: $GAMEDIR/T2.exe
+    prefix: $GAMEDIR/prefix
+    arch: win32
+
+  installer:
+  # 1. Create the Wine prefix first to ensure the environment exists
+  - task:
+      name: create_prefix
+      prefix: $GAMEDIR/prefix
+      arch: win32
+
+  # 2. Extract the archive (Works for both Local selection or Downloaded file)
+  - extract:
+      file: game_archive
+      dst: $GAMEDIR
+
+  # 3. Install dependencies (Windows XP mode is highly recommended for Yoot Tower)
+  - task:
+      name: winetricks
+      app: winxp
+      prefix: $GAMEDIR/prefix
+
+  wine:
+    Desktop: true
+    DesktopCc: 1024x768
